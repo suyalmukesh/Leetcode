@@ -19,34 +19,33 @@ def letterCombinations(digits):
 
     output = []
     if len(my_list) == 0:
+        print("There is no number")
         return []
 
     elif len(my_list) == 1:
-        print("here")
+        print("Only a single digit number is entered")
         for i in my_list[0]:
             output.append(i)
         return output
 
     else:
-        for k in range(1,len(my_list)):            
-            first = my_list[0]
-            second = my_list[k]
-            print(f"first:second :: {first}:{second}")
-            for i in first:
-                for j in second:
-                    output.append(f"{i}{j}")
-            first = output
-            output = first
-            return output
+        print(f"{len(my_list)} digit number is entered ")
+        n = len(my_list)
+        i = 2
+        output = find_pair(my_list[0],my_list[1])
+        while(i < n):
+            output = find_pair(output,my_list[i])
+            i+= 1
+        return output    
+
 
 if __name__ == "__main__":
-    input = [23,45,29,6,879]
+    input = [23,45,29,6,879,"",9876]
     case = 0
     for number in input:
         case += 1
-        print(f"Case Number : {case}")
+        print(f"Case Number : {case} , Input : {number}")
         print(letterCombinations(number))
         print("--------------------------------")
 
 
-    print(find_pair(["abc"],["hgy"]))    
