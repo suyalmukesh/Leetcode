@@ -57,6 +57,35 @@ def addBinary(a, b):
     fix_reverse  = int(fix_reverse)  # Removing prefixed zero 
     fix_reverse = str(fix_reverse)  # As answer is needed in string format 
     return fix_reverse
+
+## LeetCode Official Solution 
+## Revice this again and again
+
+def addBinary2(a, b):
+        n = max(len(a), len(b))
+        a, b = a.zfill(n), b.zfill(n)
+        
+        carry = 0
+        answer = []
+        for i in range(n - 1, -1, -1):
+            if a[i] == '1':
+                carry += 1
+            if b[i] == '1':
+                carry += 1
+                
+            if carry % 2 == 1:
+                answer.append('1')
+            else:
+                answer.append('0')
+            
+            carry //= 2
+        
+        if carry == 1:
+            answer.append('1')
+        answer.reverse()
+        
+        return ''.join(answer)
+
 # Driver 
 if __name__ == "__main__":
     inputs = [["11","1"],["1010","1011"]]
@@ -65,4 +94,5 @@ if __name__ == "__main__":
         case += 1
         print(f"Case : {case}")
         print(addBinary(input[0],input[1]))
+        print(addBinary2(input[0],input[1]))
         print("------------------------------------------")
