@@ -23,7 +23,7 @@ def isPalindrome(s):
     n = len(target)
     i = 0 
     j = n-1
-    while (i < j):
+    while (i < j):  # Two pointer Approach 
         if target[i] == target[j]:
             i += 1
             j -= 1
