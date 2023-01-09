@@ -14,49 +14,49 @@ Output: "10101
 Imp:1+1=1 with carry 1 if previous carry was 1
 
 """
-def sum_bits(a,b):
-    if a == '1' and b == '1' :
-        sum = '0'
-        carry = '1'
-        return [sum,carry]
-    elif a == '1' and b == '0':
-        sum,carry = '1','0'
-        return [sum,carry]
-    elif a == '0' and b == '1':
-        sum, carry = '1','0'
-        return [sum,carry]
-    elif a == '0' and b == '0' :
-        sum, carry = '0','0'
-        return [sum,carry]
-    else:
-        return '-1' 
-                      
+""" 
+THOUGH THIS QUESTION WAS IN EASY BUT IT TOOK ME LOT OF EFFORTS AND STILL I DON'T THINK MY SOLUTION LOOKS GOOD 
+"""
 
 
-def addBinary(numa, numb):
-    la = len(numa) - 1
-    lb = len(numb) - 1
+def sum_bits(a,b,c):
+        sum =  int(a) + int(b) + int(c)
+        if sum == 3:
+            sum , carry = '1', '1'
+            return sum,carry
+        elif sum == 2:
+            sum , carry = '0', '1'
+            return sum,carry
+        elif sum == 1:
+            sum , carry = '1', '0'
+            return sum,carry
+        else:
+            sum , carry = '0', '0'    
+            return sum,carry
 
-    str = ""
-    carry = 0 
-    maxi = max(la,lb)
-    for i in range(maxi,-1,-1):
-        if numa[i] and numb[i]:
-            a , b = sum(numa[i],numb[i])
-            c , d = sum(a,carry) 
-            str = str + c
-            carry = d
-        elif numa[i]:
-            a,b = sum(numa[i],carry)
-            str = str + a
-            carry = b
-        elif numb[i]:
-            a,b = sum(numb[i],carry)              
-            str = str + b
-            carry = b
-    print(str)
+def addBinary(a, b):
+    b1 = a[::-1]
+    b2 = b[::-1]
 
+    out = ""
+    aa,bb= 0,0
+    mm = max(len(b1),len(b2))
+    carry = 0
+    for i in range(mm+1):
+        if i <= len(b1)-1:
+            aa = b1[i]
+        else: aa = 0    
+        if i <= len(b2)-1:
+            bb = b2[i]
+        else: bb = 0 
+        sum , cc = sum_bits(aa,bb,carry)
+        carry = cc
+        out = out+sum
 
+    fix_reverse =  out[::-1]   # As we are doing addition from left 
+    fix_reverse  = int(fix_reverse)  # Removing prefixed zero 
+    fix_reverse = str(fix_reverse)  # As answer is needed in string format 
+    return fix_reverse
 # Driver 
 if __name__ == "__main__":
     inputs = [["11","1"],["1010","1011"]]
