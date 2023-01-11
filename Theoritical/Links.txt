@@ -1,0 +1,20 @@
+1. Map Reduce in Spark :   
+        https://www.geeksforgeeks.org/map-reduce-in-hadoop/
+
+2. Spark Execution Flow ( Simple) : 
+        https://medium.com/@Sanjay007/understanding-the-execution-process-of-apache-spark-4209374febb8
+
+3. Hadoop Architecture : 
+        https://www.geeksforgeeks.org/hadoop-architecture/
+
+4. [YOU TUBE] How Spark Creates Partitions :    
+        https://www.youtube.com/watch?v=9HY8KG2FWF0&ab_channel=CleverStudies
+
+5. Spark Execution Process ( Detail ) : 
+        https://developer.hpe.com/blog/how-spark-runs-your-applications/#:~:text=The%20Spark%20execution%20model%20can,driver%2Dnode%3E%3A4040.
+
+6. HOW SPARK WORKS INTERNALLY ?
+        https://stackoverflow.com/questions/30691385/how-spark-works-internally
+
+
+

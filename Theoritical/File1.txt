@@ -1,0 +1,41 @@
+#  COVER THESE  # 
+-------------------
+
+1.  Current Project Explanation.
+2.  Any Major issues resolved in the current project.
+3.  What all optimization techniques have you used in your project
+4.  Hadoop Architecture
+5.  Three SQL questions majorly on joins, subqueries, Group By, inline view,with Clause, timestamp.
+6.  Coding Questions Pyspark or scala Spark.
+7.  What are different constraints in sql and why do they different?
+
+Mostly focused on Scenario based questions. Those include--
+
+1.  How do you increase mappers?
+2.  What if Running Job fails in sqoop?
+3.  How do you update with Latest data on Sqoop?
+4.  What you do if data skewing happens?
+5.  What kind of file formats do you use? and where?
+6.  Why we need RDD?
+7.  What is the use driver in spark?
+8.  How do you tackle Memory exceptions errors in spark?
+9.  What kind of join do you use if one partition has more data and others have less data?
+10. Why do we need to use containers in spark?
+11. What happens if we increase More partitions in spark?
+12. Write down command to increase no.of partitions?
+13. Write down UDF query?
+
+Important :
+
+1.  Architecture of MapReduce?
+2.  What is Outliers in MapReduce?
+3.  What is Partition, shuffle & sort?
+4.  What is block report in Hadoop?
+5.  Partition By Vs Bucketing in Hive?
+6.  Difference between Cassandra and HBase?
+7.  What is Catalyst optimizer?
+8.  Explain the ETL tools have you used?
+9.  Explain basic cloud concepts and more questions on specific cloud we worked?
+10. DataFrame Vs Dataset?
+11. Explain Broadcast join?
+

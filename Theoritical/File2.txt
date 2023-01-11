@@ -1,0 +1,23 @@
+1. What happend when we submit a query to spark ? 
+   Take an example of spark dataframe query 
+
+
+2. Calculate Hardware configuration 
+        Num of Executors 
+        Executor Cores 
+        Executor Memory 
+        Driver Memory 
+
+
+3. Basic Spark configuration example . 
+        Some basic Spark Configurations should be handy 
+
+
+4. What is Partition and Partitioner in Spark ?
+
+
+5. Types of Joins in Spark , how to use and check ? 
+
+
+6. Concept of Jobs | Stages | Tasks 
+
