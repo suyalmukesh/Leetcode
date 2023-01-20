@@ -16,5 +16,6 @@
 6. HOW SPARK WORKS INTERNALLY ?
         https://stackoverflow.com/questions/30691385/how-spark-works-internally
 
-
+7. RDD related ( Good One )
+       https://burcuku.github.io/cse2520-bigdata/spark.html  
 
