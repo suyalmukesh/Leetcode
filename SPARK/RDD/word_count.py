@@ -1,7 +1,8 @@
 from pyspark import * 
 from pyspark.sql import SparkSession 
 
-sc = SparkSession.builder.appName("Test").getOrCreate()
+sc = SparkSession.builder.appName("Word Count").getOrCreate()
+
 rdd1 = sc.sparkContext.textFile("/Users/mukesh/desktop/Spark/Input/songs.txt")
 print(f"Partition_Count : {rdd1.getNumPartitions()}")
 
