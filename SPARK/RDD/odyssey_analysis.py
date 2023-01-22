@@ -23,7 +23,7 @@ if __name__ == "__main__":
     # Q: How can we remove all punctuation marks?
     list_punctuation = odysse3.filter(lambda x : x in ("\\p{Punct}"))
     print(list_punctuation.take(100))
-    no_punctuation = odysse3.filter(lambda x: x.replace("\\p{'.'}", ""))
+    no_punctuation = odysse3.filter(lambda x: x.replace("\\p{Punct}", ""))
 
     print(no_punctuation.take(10))
 
