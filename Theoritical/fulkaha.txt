@@ -1,0 +1,80 @@
+1. Project description + 
+2. Tech stacks (AWS + , Spark ++ , Airflow - , Snowflake -  , Jenkins -- )
+3. Data Modelling -
+4. Data warehousing concepts - 
+5. SCD types - 
+6. RDBMS concepts +  
+
+--------------------------------------
+1. SQL +++
+2. Python ++
+3. RDD ++
+4. DataFrame ++  
+---------------------------------------
+Hadoop Concepts : 
+  Map Reduce - 
+
+Spark : 
+    Spark Concepts + 
+    Transformations , Actions + 
+    Basic Data frame operations + 
+    What happens when you submit a job :
+    https://stackoverflow.com/questions/30691385/how-spark-works-internally
+    
+    Spark Architecture
+    File Types : Parquet | Avro | ORC | CSV 
+    Json Handling (json.load & json.bulk)
+    Bucketing concepts 
+    Spark Joins 
+
+Hive:     
+    Partitioning & Bucketing 
+    Hive Joins 
+    Hive Basic Queries 
+
+Airflow :
+    Operators 
+    Dags
+    Sensors
+    Airflow Architecture 
+
+Snowflake :
+    Architecture 
+    Types of warehouse 
+    TimeTravel
+    SnowPipe
+    Micro-Partitions 
+
+AWS : 
+    S3 ( Properties etc )
+    EC2 
+    EMR ( in depth)
+    SNS 
+    SQS 
+    Lambda
+    KMS 
+    Secret Manager 
+    Encryption ( Security)
+
+
+CICD : 
+    Jenkins ( small info)
+
+
+GIT : 
+    Git pull 
+    Git Push 
+    Git Merge 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
