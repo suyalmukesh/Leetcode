@@ -1,0 +1,36 @@
+1.  Introduce yourself (Present company ,domain )
+2.  Tech stack (AWS , EMR , PYSPARK , Airflow , Snowflake , S3  )
+
+3.  SQL and Python 
+4.  Spark Architecture 
+5.  Cluster configuration (40 nodes )
+6.  Data Size (Batch size , generally 400 , 500 GB )
+7.  Challenges you have faced (Data Skewness )
+8.  Common error (OOM errors , heartbeat error)
+
+9.  AWS services which you have used (S3 , EMR , SNS , Lambda function , SQS , KMS ) 
+10. Map Reduce 
+11. RDD , Linege , DAG 
+12. Dataframe Operations 
+13. Wordcount using RDD 
+14. Transformation & Actions
+15. Narrow & wide 
+16. Coalesce & Repartition
+17. ReduceBykey & GroupByKey 
+18. Bucketing in Spark 
+19. Optimization in Spark 
+20. Spark-Submit options with configurations like executor memory , driver , worker
+21. What happens when we submit a job 
+22. Catalyst (Tunstun) optimiser in spark 
+
+******************* // ************************* // *****************************
+
+1. feature branch 
+2. Local 
+3. Edit 
+4. Git add , commit , push 
+
+******************* + ************************* + ***********************************
+
+
+
