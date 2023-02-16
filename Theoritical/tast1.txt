@@ -32,5 +32,14 @@
 
 ******************* + ************************* + ***********************************
 
+Git Basics : 
+
+Git clone , pull , add , commit , push 
+
+Git merge 
+
+What is conflict 
+
+
 
 

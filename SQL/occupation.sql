@@ -78,7 +78,7 @@ on a.R = c.R
 full join actor d
 on a.R = d.R;
 
--- For Explanation , contact suyalji85@hgmail.com
+-- For Explanation , contact suyalji85@gmail.com
 
 
 
