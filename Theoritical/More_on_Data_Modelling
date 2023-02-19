@@ -1,0 +1,37 @@
+What are the types of data modeling?
+
+The three primary data model types are relational, dimensional, and entity-relationship (E-R). There are also several others that are not in general use, including hierarchical, network, object-oriented, and multi-value. The model type defines the logical structure – how the data is stored, logically – and therefore how it is stored, organized, and retrieved.
+
+
+Relational: Although “older” in approach, the most common database model still in use today is relational, which stores the data in fixed-format records and arranges data in tables with rows and columns. The most basic type of data model has two elements: measures and dimensions. Measures are numeric values, such as quantities and revenue, used in mathematical calculations like sum or average. Dimensions can be text or numeric. They are not used in calculations and include descriptions or locations. The raw data is defined as a measure or a dimension. Other terminology used in relational database design includes “relations” (the table with rows and columns), “attributes” (columns), “tuples” (rows), and “domain” (set of values allowed in a column). While there are additional terms and structural requirements that define a relational database, the important factor is the relationships defined within that structure. Common data elements (or keys) link tables and data sets together. Tables can also be related explicitly, like parent and child relationships including one-to-one, one-to-many, or many-to-many.
+
+
+Entity-Rich (E-R): An E-R model represents a business data structure in graphical form containing boxes of various shapes to represent activities, functions, or “entities” and lines to represent associations, dependencies, or “relationships.” The E-R model is then used to create a relational database with each row representing an entity and the fields in that row contain attributes. As in all relational databases, “key” data elements are used to link tables together.
+
+
+
+Dimensional: Less rigid and structured, the dimensional approach favors a contextual data structure that is more related to the business use or context. This database structure is optimized for online queries and data warehousing tools. Critical data elements, like a transaction quantity for example, are called “facts” and are accompanied by reference information called “dimensions,” be that product ID, unit price, or transaction date. A fact table is a primary table in a dimensional model. Retrieval can be quick and efficient – with data for a specific type of activity stored together – but the lack of relationship links can complicate analytical retrieval and use of the data. Since the data structure is tied to the business function that produces and uses the data, combining data produced by dissimilar systems (in a data warehouse, for instance) can be problematic.
+Entity-Rich (E-R): An E-R model represents a business data structure in graphical form containing boxes of various shapes to represent activities, functions, or “entities” and lines to represent associations, dependencies, or “relationships.” The E-R model is then used to create a relational database with each row representing an entity and the fields in that row contain attributes. As in all relational databases, “key” data elements are used to link tables together.
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+Data modeling process and techniques
+Data modeling is inherently a top-down process, starting with the conceptual model to establish the overall vision, then proceeding to the logical model, and finally the detailed design contained in the physical model.
+
+ 
+
+Building the conceptual model is mostly a process of converting ideas into a graphical form that resembles a programmer developer’s flow chart.
+
+ 
+
+Modern data modeling tools can help you define and build your logical and physical data models and databases. Here are a few typical data modeling techniques and steps:
+
+Determine entities and create an entity relationship diagram (ERD). Entities can be better described as “data elements of interest to your business.” For example, “customer” would be an entity. “Sale” would be another. On an ERD, you document how these different entities relate to each other in your business and which high-level connections exist between them.
+Define your facts, measures, and dimensions. A fact is the part of your data that indicates a specific occurrence or transaction, like the sale of a product. Your measures are quantitative, like quantity, revenue, cost, and so on. Your dimensions are qualitative measures, such as descriptions, locations, and dates.  
+Create a data view link using a graphical tool or via SQL queries. If you are unfamiliar with SQL, the graphical tool is the most intuitive option, allowing you to drag and drop elements into your model and visually build your connections. While creating a view, you have the option to combine tables and even other views into a single output. When you select a source in the graphical view and drag it on top of a source already associated with the output, you will have the option to either join or create a union of these tables.
+Modern analytics solutions can also help you select, filter, and connect data sources using a graphical drag-and-drop display. Advanced tools are available for data experts typically working in IT – but users can also create their own stories by visually creating a data model and organizing tables, charts, maps, and other objects to tell a story based on data insights.
+
