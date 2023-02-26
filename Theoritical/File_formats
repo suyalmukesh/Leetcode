@@ -1,0 +1,62 @@
+Avro :
+
+https://avro.apache.org/docs/1.2.0/
+
+Avro stores the data definition in JSON format making it easy to read and interpret; the data itself is stored in binary format making it compact and efficient. Avro files include markers that can be used to split large data sets into subsets suitable for Apache MapReduce processing.
+
+To transfer data over a network or for its persistent storage, you need to serialize the data. Prior to the serialization APIs provided by Java and Hadoop, we have a special utility, called Avro, a schema-based serialization technique.
+
+General Working of Avro
+To use Avro, you need to follow the given workflow −
+
+Step 1 − Create schemas. Here you need to design Avro schema according to your data.
+
+Step 2 − Read the schemas into your program. It is done in two ways −
+
+By Generating a Class Corresponding to Schema − Compile the schema using Avro. This generates a class file corresponding to the schema
+
+By Using Parsers Library − You can directly read the schema using parsers library.
+
+Step 3 − Serialize the data using the serialization API provided for Avro, which is found in the package org.apache.avro.specific.
+
+Step 4 − Deserialize the data using deserialization API provided for Avro, which is found in the package org.apache.avro.specific.
+
+PRACTICAL :  https://kontext.tech/article/1056/pyspark-read-and-write-avro-files
+
+
+Avro Uses: When to Use Avro
+By using Avro we are able to read the data from disk with applications written in other languages besides Java or the JVM.
+Also, Avro allows us to transfer data across a remote system without any overhead of java serialization.
+
+GOOD READ :  https://www.baeldung.com/java-apache-avro
+
+============================================================================
+
+
+
+Apache Avro was released by the Hadoop working group in 2009. It is a row-based format that has a high degree of splitting. It is also described as a data serialization system similar to Java Serialization. The schema is stored in JSON format, while the data is stored in binary format, which minimizes file size and maximizes efficiency. Avro has reliable support for schema evolution by managing added, missing, and changed fields. This allows old software to read new data, and new software to read old data — it is a critical feature if your data can change.
+
+Avro's ability to manage scheme evolution allows components to be updated independently, at different times, with a low risk of incompatibility. This eliminates the need for applications to write if-else statements to handle different versions of schema and eliminates the need for the developer to look at old code to understand the old schema. Since all versions of the schema are stored in a human-readable JSON header, it is easy to understand all the fields available to you.
+
+Since the schema is stored in JSON and the data is stored in binary form, Avro is a relatively compact option for both permanent storage and wire transfer. Since Avro is a row-based format, it is the preferred format for handling large amounts of records as it is easy to add new rows.
+
+Pros and cons of the format:
+
+➕ Avro is a linguistic-neutral serialization of data.
+➕ Avro stores the schema in a file header, so the data is self-describing;
+➕ Easy and fast data serialization and deserialization, which can provide very good ingestion performance;
+➕ As with the Sequence files, the Avro files also contain synchronization markers to separate blocks. This makes it highly splittable;
+➕ Files formatted in Avro are splittable and compressible and are therefore a good candidate for data storage in the Hadoop ecosystem;
+➕ The schema used to read Avro files does not necessarily have to be the same as the one used to write the files. This allows new fields to be added independently of each other;
+➖ Makes you think about the schema and data types;
+➖ Its data is not human-readable;
+➖ Not integrated into every programming language.
+
+Summary :
+
+Please find the attachment for summary.
+
+JSON has the same conditions about splittability when compressed as CSV with one extra difference. When “wholeFile” option is set to true, JSON files are NOT splittable.
+ 
+#SparkFileFormats #CSV #AVRO #Parquet #JSON #Spark #dataengineering #bigdataanalytics #bigdata
+Activate to view larger image,
