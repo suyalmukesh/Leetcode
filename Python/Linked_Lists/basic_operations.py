@@ -17,6 +17,16 @@ class linked_list:
                 current = current.next
             current.next = new_node        
 
+    def length(self):
+        temp = self.head
+        if temp is None:
+            return 0
+        count = 0 
+        while temp:
+            count += 1
+            temp = temp.next 
+        return count        
+         
     def print_list(self):
         current = self.head
         while current:
@@ -43,16 +53,14 @@ class linked_list:
         prev.next = temp.next
         temp = None
 
+if __name__ == "__main__":
+    new_list = linked_list()
+    new_list.insert(6)
+    new_list.insert(5)
+    new_list.insert(10)
 
-
-
-
-new_list = linked_list()
-new_list.insert(6)
-new_list.insert(5)
-new_list.insert(10)
-
-new_list.print_list()
-print(".....")
-new_list.delete_key(15)
-new_list.print_list()
+    new_list.print_list()
+    print(".....")
+    new_list.delete_key(15)
+    new_list.print_list()
+    print(f"The length is : {new_list.length()}")
