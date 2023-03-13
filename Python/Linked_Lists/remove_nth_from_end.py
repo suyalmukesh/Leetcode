@@ -28,7 +28,8 @@ class linked_list:
     def insert_at_position(self,pos,num):
         if pos < 1 :
             print(f"\n{pos} is Invalid position")
-            return
+            return 
+
         print(f"\nInserting at position : {pos}")    
         new_node = node(num)
         if pos == 1:
@@ -69,14 +70,35 @@ class linked_list:
         prev.next = None
         return       
 
+    def swap_nodes(self):
+        if self.head is None or self.head.next is None:
+            return 
+        
+        curr = self.head
+        next = curr.next
+
+        while curr and next:
+            temp = curr.next.next
+            curr.next.next = curr
+            curr.next = temp
+            curr = temp
+        return     
+
+
+
+
+
+
     def display(self):
+        print("Displaying.....")
         current = self.head
         if current is None:
             print("List is empty")
-        while current:
+            return
+        while current is not None:
             print(current.data,end=" --> ")
             current = current.next
-   
+        return 
 
 
 if __name__ == "__main__":
@@ -92,14 +114,16 @@ if __name__ == "__main__":
     a.display()
     a.insert_at_position(1,219)
     a.display()
+
     a.insert_at_position(0,302)
     a.display()
-    a.delete_at_first()
+    #a.delete_at_first()
+    #a.display()
+    #a.delete_at_first()
+    #a.display()
+    #a.delete_at_last()
+    #a.display()
+    a.swap_nodes()
     a.display()
-    a.delete_at_first()
-    a.display()
-    a.delete_at_last()
-    a.display()
-
 
                         
