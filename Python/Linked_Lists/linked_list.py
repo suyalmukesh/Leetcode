@@ -89,7 +89,39 @@ class linked_list:
         temp.next = new_node
         return self.head
 
-         
+    def delete_n_from_last(self,n):
+        if self.head is None:
+            print("Nothing to delete") 
+            return
+        count = 0 
+        temp = self.head
+        while temp:
+            count+= 1
+            temp = temp.next 
+
+        if n > count:
+            print("The position requested is not correct") 
+            return 
+        del_position = count - n 
+
+        if del_position == 1 :
+            temp = self.head
+            self.head = temp.next 
+            temp = None
+            return self.head
+        temp = self.head      
+        counter = 1 
+        while counter < del_position:
+            temp = temp.next 
+            counter += 1
+        to_del = temp.next 
+        temp.next = to_del.next
+        to_del = None 
+        return          
+
+
+
+
 
 
 
@@ -132,6 +164,9 @@ if __name__ == "__main__":
             num = int(input("Enter the value"))
             my_list.insert_at_pos(pos,num)
             my_list.display()    
+        elif n == 8:
+            my_list.delete_n_from_last(2)
+            my_list.display()
 
         elif n == 0:
             break
