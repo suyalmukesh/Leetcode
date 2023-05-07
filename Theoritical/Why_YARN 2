@@ -1,0 +1,39 @@
+Do you know how 𝐘𝐀𝐑𝐍(𝐘𝐞𝐭 𝐀𝐧𝐨𝐭𝐡𝐞𝐫 𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐍𝐞𝐠𝐨𝐭𝐢𝐚𝐭𝐨𝐫) came into existence?
+
+In Hadoop1/MR1, job executions were controlled by 2 processes:
+
+1) job tracker - scheduling + monitoring
+2) task tracker - tracks tasks on each data node and informs job tracker
+
+𝐋𝐢𝐦𝐢𝐭𝐚𝐭𝐢𝐨𝐧𝐬 𝐨𝐟 𝐇𝐚𝐝𝐨𝐨𝐩1/𝐌𝐑1:
+
+➡️𝐒𝐜𝐚𝐥𝐚𝐛𝐢𝐥𝐢𝐭𝐲 - It is observed that if cluster size goes beyond 4k data nodes then job tracker used to become bottleneck.
+
+➡️𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧 - Fixed number of map and reduce slots which may lead to under utilization of cluster resources.
+
+➡️𝐉𝐨𝐛𝐬 𝐬𝐮𝐩𝐩𝐨𝐫𝐭 - only map reduce jobs were supported.
+
+YARN came into existence to overcome these limitations.
+
+𝐂𝐨𝐦𝐩𝐨𝐧𝐞𝐧𝐭𝐬 𝐨𝐟 𝐘𝐀𝐑𝐍:
+
+1) 𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐌𝐚𝐧𝐚𝐠𝐞𝐫 :
+✅Keeps track of live node managers and available resources.
+✅Allocates available resources to appropriate applications and tasks.
+✅Monitors Application Master.
+
+2) 𝐍𝐨𝐝𝐞 𝐌𝐚𝐧𝐚𝐠𝐞𝐫:
+✅Provides computational resources in the form of containers.
+✅Manages processes running in containers.
+
+3) 𝐀𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐌𝐚𝐬𝐭𝐞𝐫:
+✅Co ordinates the execution of all tasks within its application.
+✅Asks for appropriate resource containers to run tasks.
+
+How YARN overcomes the limitations of Hadoop1:
+
+➡️𝐒𝐜𝐚𝐥𝐚𝐛𝐢𝐥𝐢𝐭𝐲 - Scheduling is being taken care by Resource Manager and Monitoring is taken care by Application Master.
+
+➡️𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐔𝐭𝐢𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧 - With the concept of logical containers, we do not need fixed number of slots for map and reduce since resource utilization is dynamic, cluster utilization is improved.
+
+➡️𝐉𝐨𝐛𝐬 𝐬𝐮𝐩𝐩𝐨𝐫𝐭 - We can have other jobs like Giraph,Spark,tez.... in addition to MapReduce.
