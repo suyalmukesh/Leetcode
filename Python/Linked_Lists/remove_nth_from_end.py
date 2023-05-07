@@ -70,6 +70,7 @@ class linked_list:
         prev.next = None
         return       
 
+# -------------------------------------------------------------------------------------
     def swap_nodes(self):
         if self.head is None or self.head.next is None:
             return 
@@ -85,7 +86,7 @@ class linked_list:
         return     
 
 
-
+# ---------------------------------------------------------------------------------------
 
 
 

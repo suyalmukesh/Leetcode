@@ -11,6 +11,7 @@ In Hadoop1/MR1, job executions were controlled by 2 processes:
 
 ➡️𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐮𝐭𝐢𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧 - Fixed number of map and reduce slots which may lead to under utilization of cluster resources.
 
+
 ➡️𝐉𝐨𝐛𝐬 𝐬𝐮𝐩𝐩𝐨𝐫𝐭 - only map reduce jobs were supported.
 
 YARN came into existence to overcome these limitations.

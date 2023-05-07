@@ -16,7 +16,7 @@ def _threeSum(nums): ## BruteForce
     
     return output                   
     
-def threeSum(nums): ## BruteForce
+def threeSum(nums): 
     if len(nums) < 3:
         return []
 

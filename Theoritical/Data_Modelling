@@ -25,23 +25,28 @@ This model is based on the notion of real-world entities and relationships among
 
 Here, an entity is a real-world object; for instance, an employee is an entity in an employee database. An attribute is a property with value, and entity sets share attributes of identical value. Finally, there is the relationship between entities.
 
+
 2. Hierarchical Model
 This data model arranges the data in the form of a tree with one root, to which other data is connected. The hierarchy begins with the root and extends like a tree. This model effectively explains several real-time relationships with a single one-to-many relationship between two different kinds of data.
 
 For example, one supermarket can have different departments and many aisles. Thus, the ‘root’ node supermarket will have two ‘child’ nodes of (1) Pantry, (2) Packaged Food.
 
+
 3. Network Model
 This database model enables many-to-many relationships among the connected nodes. The data is arranged in a graph-like structure, and here ‘child’ nodes can have multiple ‘parent’ nodes. The parent nodes are known as owners, and the child nodes are called members.
+
 
 4. Relational Model
 This popular data model example arranges the data into tables. The tables have columns and rows, each cataloging an attribute present in the entity. It makes relationships between data points easy to identify. 
 
 For example, e-commerce websites can process purchases and track inventory using the relational model.
 
+
 5. Object-Oriented Database Model
 This data model defines a database as an object collection, or recyclable software components, with related methods and features.
 
 For instance, architectural and engineering real-time systems used in 3D modeling use this data modeling process. 
+
 
 6. Object-Relational Model
 This model is a combination of an object-oriented database model and a relational database model. Therefore, it blends the advanced functionalities of the object-oriented model with the ease of the relational data model.
@@ -74,26 +79,34 @@ FAQs
 Q1. What is data modeling?
 The process of creating a visual representation of either part of a system or the entire system to communicate connections between structures and data points using elements, texts, and symbols.  
 
+
 Q2. What are the types of data models?
 There are three types of data models: dimensional, relational, and entity relational. These models follow three approaches: conceptual, logical, and physical. Other data models are also there; however, they are obsolete, such as network, hierarchical, object-oriented, and multi-value. 
+
 
 Q3. What are the types of data modeling techniques?
 The following are the types of data modeling techniques: hierarchical, network, relational, object-oriented, entity-relationship, dimensional, and graph. 
 
+
 Q4. What is the data modeling process?
 The first step in the data modeling process is identifying the use cases and logical data models. Then create a preliminary cost estimation. Identify the data access patterns and technical requirements. Create DynamoDB data model and queries. Validate the model and review the cost estimation. 
+
 
 Q5. How can AWS help with data modeling?
 You can use Amazon RDS (relational database service) to implement relational data models, Amazon Neptune to implement graph data models, and AWS Amplify DataStore for faster and easier data modeling to build web and mobile applications. 
 
+
 Q6. What are data modeling concepts?
 Data modeling concepts answer the question of WHAT the system contains. A conceptual model helps to organize, scope, and define business concepts and rules. These concepts are created by data architects and business stakeholders. 
+
 
 Q7. Why is data modeling important?
 An organized and comprehensive data modeling is crucial to create a simplified, logical, and physical database. It is necessary to eliminate storage requirements and redundancy and enable efficient data retrieval. 
 
+
 Q8. What are the types of data modeling?
 The predominant data modeling types are hierarchical, network, relational, and entity-relationship. These models help teams to manage data and convert them into valuable business information. 
+
 
 Q9. What are the three levels of data abstraction?
 Three levels of data abstraction are physical or internal, logical or conceptual, and view or external. The lowest form is physical, and the highest is the view. On a logical level, the information is stored in the database in the form of tables. 

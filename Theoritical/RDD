@@ -1,3 +1,5 @@
+https://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations
+
 1. [ ]  Know about RDD
 2. [ ]  Transformations & Actions (commonly used )
 3. [ ]  5 different programs (starting with word count )
@@ -7,3 +9,207 @@
 
 
 
+
+https://sehun.me/apache-spark-rdd-490e48eda568
+
+RDD : https://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations
+
+
+Apache Spark RDD & Dataframe
+Park Sehun
+Park Sehun
+
+·
+Follow
+
+6 min read
+·
+15 hours ago
+
+
+
+
+RDD stands for Resilient Distributed Dataset, a fundamental data structure in Apache Spark. It is an immutable distributed collection of objects that can be processed in parallel across a cluster of computers.
+
+In Spark, RDDs are the basic building blocks for all Spark operations and transformations. RDDs are fault-tolerant and can automatically recover from node failures, making them resilient. They can be cached in memory for faster processing and partitioned across multiple nodes in a cluster for parallel processing.
+
+RDDs can be created from data stored in Hadoop Distributed File System (HDFS), Local File System, or other data sources such as Amazon S3, Cassandra, and HBase. Once an RDD is created, it can be transformed using various operations like map, filter, reduce, join, and more. These operations are performed in parallel on all the nodes in the cluster, making Spark a powerful tool for big data processing.
+
+Spark RDDs are a key part of Spark’s processing engine and provide a scalable and fault-tolerant way to process large datasets quickly and efficiently.
+
+
+Before RDD, many frameworks were challenged in processing multi-tasks and reliable intermediate data was required HDFS.
+
+
+Unlike HDFS which has all data in disk to be processed for iterations, RDD is processing the data with in-memory.
+
+Before going for the details of RDD, you will need to clarify the other data structures used in Spark.
+
+Comparison among RDD, Dataframe, and DataSets.
+RDDs (Resilient Distributed Datasets): RDDs are the fundamental data structure in Spark. They are a distributed collection of immutable objects that can be processed in parallel across a cluster of computers. RDDs are fault-tolerant and can automatically recover from node failures. RDDs are suitable for low-level transformations and actions, and for working with unstructured data. RDDs offer more flexibility and control over the data processing flow than DataFrames and Datasets.
+# Sample Codes
+# Create an RDD from a text file
+rdd = sc.textFile("large_text_file.txt")
+
+# Filter out lines that contain the word "error"
+filtered_rdd = rdd.filter(lambda line: "error" not in line)
+
+# Map each line to a tuple of (word, count)
+mapped_rdd = filtered_rdd.flatMap(lambda line: line.split()) \
+                         .map(lambda word: (word, 1))
+
+# Reduce by key to get the total count for each word
+word_count_rdd = mapped_rdd.reduceByKey(lambda a, b: a + b)
+
+# Save the result to a text file
+word_count_rdd.saveAsTextFile("word_count.txt")
+DataFrames: DataFrames are a distributed collection of data organized into named columns. They are similar to tables in a relational database or data frames in R and Python. DataFrames provide a higher-level API than RDDs and allow for structured and semi-structured data processing. DataFrames are optimized for processing large datasets quickly, and they can be easily integrated with SQL queries and machine learning libraries.
+# Create a DataFrame from a CSV file
+df = spark.read.format("csv").option("header", "true").load("structured_data.csv")
+
+# Select the columns "name" and "age", and filter by age greater than 30
+filtered_df = df.select("name", "age").where("age > 30")
+
+# Group by age and count the number of people in each age group
+grouped_df = filtered_df.groupBy("age").count()
+
+# Save the result to a CSV file
+grouped_df.write.format("csv").save("age_group_count.csv")
+Datasets: Datasets are a type-safe, distributed collection of objects that are designed to work with structured and semi-structured data. Datasets offer the best of both RDDs and DataFrames. They provide a higher-level API than RDDs and allow for type-safe processing, while also providing a more efficient execution engine than DataFrames. Datasets can be easily integrated with Spark’s machine-learning libraries, making them a popular choice for data processing and analysis.
+# Define a case class to represent a customer transaction
+case class Transaction(customer_id: Int, product_id: Int, amount: Double)
+
+# Create a Dataset from a JSON file
+val ds = spark.read.json("customer_transactions.json").as[Transaction]
+
+# Group by customer_id and product_id, and sum the total amount for each group
+val grouped_ds = ds.groupBy("customer_id", "product_id").agg(sum("amount").alias("total_amount"))
+
+# Train a linear regression model to predict the total amount based on customer_id and product_id
+val lr = new LinearRegression().setLabelCol("total_amount")
+                                .setFeaturesCol("features")
+                                .setMaxIter(10)
+                                .setRegParam(0.3)
+val model = lr.fit(grouped_ds)
+Operations with Spark RDD
+Transformations: Transformation operations in Spark RDD are operations that create a new RDD from an existing one. These operations are lazy, meaning they do not compute results immediately, but only when an action operation is called.
+
+map
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Apply a function to double each element in the RDD
+mapped_rdd = rdd.map(lambda x: x * 2)
+
+# Print the transformed RDD
+print(mapped_rdd.collect())
+# Output: [2, 4, 6, 8, 10]
+filter
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Filter the even numbers from the RDD
+filtered_rdd = rdd.filter(lambda x: x % 2 == 0)
+
+# Print the filtered RDD
+print(filtered_rdd.collect())
+# Output: [2, 4]
+union
+# Create two RDDs of integers
+rdd1 = sc.parallelize([1, 2, 3])
+rdd2 = sc.parallelize([4, 5, 6])
+
+# Combine the two RDDs
+union_rdd = rdd1.union(rdd2)
+
+# Print the combined RDD
+print(union_rdd.collect())
+# Output: [1, 2, 3, 4, 5, 6]
+flatMap
+# Create an RDD of strings
+rdd = sc.parallelize(["hello world", "how are you"])
+
+# Split the words in each string and flatten the results
+flatMap_rdd = rdd.flatMap(lambda x: x.split())
+
+# Print the flattened RDD
+print(flatMap_rdd.collect())
+# Output: ['hello', 'world', 'how', 'are', 'you']
+Actions
+
+Spark actions are operations that trigger the execution of transformations on RDDs and return results or write data to an external storage system. Unlike transformations, actions are eager and executed immediately when they are called.
+
+collect
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Collect all elements of the RDD
+collected_rdd = rdd.collect()
+
+# Print the collected RDD
+print(collected_rdd)
+# Output: [1, 2, 3, 4, 5]
+count
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Count the number of elements in the RDD
+count = rdd.count()
+
+# Print the count
+print(count)
+# Output: 5
+take
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Take the first three elements of the RDD
+taken_rdd = rdd.take(3)
+
+# Print the taken RDD
+print(taken_rdd)
+# Output: [1, 2, 3]
+first
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Get the first element of the RDD
+first_element = rdd.first()
+
+# Print the first element
+print(first_element)
+# Output: 1
+reduce
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Reduce the elements of the RDD to their sum
+sum_rdd = rdd.reduce(lambda a, b: a + b)
+
+# Print the reduced RDD
+print(sum_rdd)
+# Output: 15
+save
+# Create an RDD of integers
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Save the elements of the RDD to a text file
+rdd.saveAsTextFile("rdd_output.txt")
+When do you use RDD and Dataframe respectively?
+RDDs and DataFrames are both data structures in Spark, but they have different characteristics and are suited for different use cases. Here are some guidelines on when to use RDDs and DataFrames respectively:
+
+Use RDDs when:
+
+You need fine-grained control over the data processing flow, such as custom serialization or deserialization.
+You need to work with unstructured or semi-structured data, such as text files or JSON data.
+You need to perform complex transformations that are not easily expressed in SQL-like operations.
+You need to perform low-level operations, such as byte-level I/O or network communication.
+Use DataFrames when:
+
+You need to work with structured data, such as data from a relational database or a CSV file.
+You need to perform SQL-like queries on the data, such as filtering, grouping, or aggregation.
+You need to integrate with third-party data sources or libraries that support DataFrames.
+You need to perform machine learning or statistical analysis on the data, as DataFrames can be easily integrated with Spark’s MLlib library.
+In general, RDDs offer more flexibility and control over the data processing flow, while DataFrames offer a higher-level API for working with structured data. However, DataFrames are also optimized for performance and can leverage Spark’s Catalyst optimizer to optimize query plans and improve query performance.
+
+Keep in mind that RDDs and DataFrames can be used together in the same Spark application. You can convert between RDDs and DataFrames using the toDF() and rdd() methods, and use the appropriate data structure for different parts of your data processing pipeline.

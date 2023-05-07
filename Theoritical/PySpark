@@ -1,10 +1,44 @@
 What is PySpark?
-🎈 How do you create a PySpark DataFrame from an RDD?
-🎈 How does Spark distribute data across a cluster?
-🎈 What is the difference between a transformation and an action in PySpark?
-🎈 How do you configure Spark to use more/less memory?
-🎈 Can you explain the difference between persist() and cache()?
-🎈 How can you optimize PySpark jobs for better performance?
-🎈 How can you debug PySpark code?
-🎈 What is the role of a broadcast variable in PySpark?
-🎈 What is the difference between PySpark and SparkSQL?
+🎈 1. How do you create a PySpark DataFrame from an RDD?
+🎈 2. How does Spark distribute data across a cluster?
+🎈 3. What is the difference between a transformation and an action in PySpark?
+🎈 4. How do you configure Spark to use more/less memory?
+🎈 5. Can you explain the difference between persist() and cache()?
+🎈 6. How can you optimize PySpark jobs for better performance?
+🎈 7. How can you debug PySpark code?
+🎈 8. What is the role of a broadcast variable in PySpark?
+🎈 9. What is the difference between PySpark and SparkSQL?
+
+7.
+Debugging PySpark code can be challenging due to the distributed and parallel nature of Spark. However, there are several techniques and approaches you can use to debug PySpark code:
+
+Logging: Utilize logging statements strategically within your PySpark code to print intermediate results, variable values, or progress indicators. You can use the Python logging module to log messages at different log levels. Log messages can be collected from Spark's executor nodes and driver program for analysis.
+
+Interactive debugging: If you are running PySpark code locally in a development environment, you can leverage standard Python debugging tools such as pdb or integrated development environments (IDEs) like PyCharm or Visual Studio Code. Set breakpoints, step through the code, inspect variables, and observe the execution flow to identify issues.
+
+Sample and subset data: When debugging PySpark code, it can be helpful to reduce the dataset size to a manageable subset. By sampling or filtering the data, you can focus on a smaller portion and validate the correctness of your transformations or calculations.
+
+Collect and print data: Use the collect() method on RDDs or DataFrame actions like take(), show(), or toPandas() to retrieve a limited amount of data from the distributed RDD or DataFrame. You can print the collected data to the console for examination.
+
+Spark Web UI: Spark provides a Web UI (typically accessible at http://localhost:4040) that offers insights into the job execution, stages, tasks, and resource utilization. It can help you identify any performance bottlenecks, errors, or issues during the Spark job execution.
+
+Troubleshooting and error handling: Catch and handle exceptions in your PySpark code using try-except blocks. Exception messages and stack traces can provide valuable information about errors or issues that occurred during execution.
+
+Data validation and sanity checks: Introduce sanity checks or data validation steps at various stages of your PySpark code to ensure the correctness of the data and intermediate results. You can compare expected and actual results, examine data statistics, or apply assertions to validate your transformations.
+
+By combining these debugging techniques, you can gain insights into the behavior of your PySpark code, identify potential issues, and iteratively refine and optimize your data processing logic.
+
+
+
+9. 
+PySpark and SparkSQL are two components of Apache Spark, an open-source distributed computing framework. While they both provide ways to interact with Spark, there are some differences between them:
+
+Programming Language: PySpark is the Python API for Apache Spark, allowing you to write Spark applications using Python. On the other hand, SparkSQL is a module within Spark that provides a programming interface and SQL support for working with structured and semi-structured data.
+
+Data Processing Paradigm: PySpark focuses on providing a general-purpose programming API for Spark, allowing you to perform data processing tasks using Python. It provides RDDs (Resilient Distributed Datasets) and DataFrames as the main abstractions for working with distributed data. SparkSQL, on the other hand, focuses specifically on structured data processing and provides a SQL-like interface to query and manipulate structured data using SQL queries or DataFrame API.
+
+Data Manipulation: PySpark allows you to work with both structured and unstructured data, and provides a wide range of functions and transformations for data manipulation. It also supports machine learning and graph processing capabilities. SparkSQL, on the other hand, is primarily focused on structured data and provides SQL-like operations for querying and transforming structured data.
+
+Language Compatibility: PySpark is specifically designed for Python developers and provides a Pythonic way of interacting with Spark. It allows you to leverage the Python ecosystem and libraries for data processing. SparkSQL, on the other hand, is designed to be language-agnostic and provides a common interface for working with structured data across different programming languages such as Python, Java, Scala, and R.
+
+In summary, PySpark is a Python API that allows you to write Spark applications using Python, while SparkSQL is a module within Spark that provides a SQL-like interface and structured data processing capabilities. PySpark is more versatile and suitable for general-purpose data processing tasks, while SparkSQL is specifically tailored for structured data processing and provides a more SQL-focused interface.

@@ -1,0 +1,19 @@
+The CAP theorem, also known as Brewer's theorem, is a fundamental principle in distributed systems that states that it is impossible for a distributed data store to simultaneously provide all three of the following guarantees:
+
+Consistency (C): Every read operation in a distributed system will return the most recent write or an error. In other words, all nodes in the system will have the same view of the data at any given time.
+
+Availability (A): Every request made to a non-failing node in the system will receive a response, even in the presence of failures or network partitions. The system remains operational and responsive.
+
+Partition tolerance (P): The system continues to operate and function even when communication between nodes is unreliable or partially unavailable, i.e., the network experiences partitions or failures.
+
+The CAP theorem states that in the presence of a network partition (P), a distributed system must choose between consistency (C) and availability (A). It is not possible to achieve both at the same time. The system designer must make a trade-off between these two properties based on the requirements and priorities of the application.
+
+When faced with a network partition, there are two options:
+
+Consistency over Availability (CA): In this case, the system prioritizes consistency and sacrifices availability. It ensures that all nodes have the same view of the data and that no conflicting updates are allowed. However, if a partition occurs, the system may become partially or completely unavailable until the partition is resolved.
+
+Availability over Consistency (AP): In this case, the system prioritizes availability and sacrifices strict consistency. It aims to provide a response to every request, even if it means that different nodes may have different views of the data during a partition. Conflicting updates may occur, and the system employs mechanisms like eventual consistency or conflict resolution techniques to reconcile the divergent copies of data.
+
+It's important to note that the CAP theorem is applicable to distributed systems that replicate and partition data across multiple nodes. However, it does not mean that all distributed systems must make a strict choice between C, A, and P. Different distributed systems make different trade-offs based on their specific requirements, and many systems aim to provide a balance between consistency, availability, and partition tolerance.
+
+In summary, the CAP theorem states that in a distributed system, when facing a network partition, you have to choose between consistency and availability. You cannot achieve both simultaneously.

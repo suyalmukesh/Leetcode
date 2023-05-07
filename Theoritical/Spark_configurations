@@ -1,0 +1,51 @@
+25 Must know Apache Spark configurations for developers :
+
+▶ spark.executor.memory: Sets the memory for each executor process.
+
+▶ spark.driver.memory: Specifies the amount of memory for the driver process.
+
+▶ spark.default.parallelism: Specifies the default parallelism.
+
+▶ spark.dynamicAllocation.enabled: Enables/disables dynamic resource allocation.
+
+▶ spark.dynamicAllocation.minExecutors: Sets the minimum number of executors for dynamic allocation.
+
+▶ spark.dynamicAllocation.maxExecutors : Sets the maximum number of executors for dynamic allocation.
+
+▶ spark.sql.shuffle.partitions: Specifies the number of partitions for shuffles in SQL.
+
+▶ spark.driver.cores: Sets the number of cores for the driver process.
+
+▶ spark.executor.cores: Sets the number of cores for each executor process.
+
+▶ spark.executor.instances: Specifies the number of executor instances.
+
+▶ spark.shuffle.spill: Enables/disables spilling of data to disk during shuffles.
+
+▶ spark.shuffle.spill.compress: Enables/disables compression for spilled data during shuffles.
+
+▶ spark.executor.heartbeatInterval: Specifies the interval for heartbeats between the executor and driver.
+
+▶ spark.driver.maxResultSize: Sets the maximum size of results that the driver can accumulate before releasing them.
+
+▶ spark.yarn.am.cores: Specifies the number of cores for the YARN Application Master.
+
+▶ spark.yarn.executor.memoryOverhead: Specifies the memory overhead for each executor in YARN.
+
+▶ spark.yarn.executor.cores: Sets the number of cores for each executor in YARN.
+
+▶ spark.yarn.maxAppAttempts: Specifies the maximum number of attempts for an application in YARN.
+
+▶ spark.driver.extraClassPath: Adds extra class paths to the driver classpath.
+
+▶ spark.executor.extraClassPath: Adds extra class paths to the executor classpath.
+
+▶ spark.yarn.queue: Specifies the queue for the application in YARN.
+
+▶ spark.kryoserializer.buffer.max: Sets the maximum buffer size for the Kryo serializer.
+
+▶ spark.ui.reverseProxy: Enables/disables reverse proxy support for the Spark UI.
+
+▶ spark.ui.reverseProxyUrl: Specifies the reverse proxy URL for the Spark UI.
+
+▶spark.network.timeout: Sets the network timeout for communication between nodes.

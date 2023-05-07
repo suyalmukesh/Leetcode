@@ -89,10 +89,10 @@ class linked_list:
         temp.next = new_node
         return self.head
 
-    def delete_n_from_last(self,n):
+    def _delete_n_from_last(self,n):
         if self.head is None:
             print("Nothing to delete") 
-            return
+            return None
         count = 0 
         temp = self.head
         while temp:
@@ -101,7 +101,7 @@ class linked_list:
 
         if n > count:
             print("The position requested is not correct") 
-            return 
+            return self.head
         del_position = count - n 
 
         if del_position == 1 :
@@ -118,6 +118,85 @@ class linked_list:
         temp.next = to_del.next
         to_del = None 
         return          
+    
+    def __delete_n_from_last(self,n):
+        if head is None:
+            return None 
+
+        length = 0 
+        temp = head 
+        while temp:  ## Calculate length 
+            length += 1
+            temp = temp.next 
+
+        position = length - n 
+
+        if position == 0:
+           temp = head 
+           head = head.next
+           temp = None
+           return head 
+
+        curr = head 
+        prev = None 
+
+        while position > 0:
+            prev = curr 
+            curr = curr.next 
+            position = position - 1 
+        
+        prev.next = curr.next 
+        curr = None 
+        return head
+
+    def delete_n_from_last(self,n):  ## slow and fast pointer approach 
+        print("Slow & Fast pointer ")
+        dummy = self.head
+        slow = self.head
+        fast = self.head 
+        
+        count = 0 
+        
+        while count < n:
+            count += 1
+            fast = fast.next
+        
+        while fast.next:
+            fast = fast.next
+            slow= slow.next
+
+        temp = slow    
+        del_node = slow.next
+        temp.next = del_node.next
+        return self.head
+          
+
+
+
+
+    def delete_nth_node(self,n):
+        if self.head is None:
+            print("List is empty ")
+            return None
+        if n == 1:
+            temp = self.head
+            self.head = temp.next
+            temp = None 
+            return self.head
+        
+        temp = self.head 
+        count = 1 
+        while count < n-1 and temp.next:
+            temp = temp.next  
+            count += 1
+            print(f"Count : {count}")
+
+        del_node = temp.next 
+        print(f"deleting_node is : {del_node.data}")
+        temp.next = del_node.next
+        del_node = None
+        return self.head     
+
 
 
 
@@ -138,6 +217,8 @@ if __name__ == "__main__":
         print("5 : delete last node")
         print("6 : Count elements")
         print("7 : insert at position")
+        print("8 : delete nth node from last ")
+        print("9 : delete nth n ode from front")
         print("0 : Exit")
         n = int(input("Option : "))
 
@@ -165,9 +246,13 @@ if __name__ == "__main__":
             my_list.insert_at_pos(pos,num)
             my_list.display()    
         elif n == 8:
-            my_list.delete_n_from_last(2)
+            n = int(input("Enter the position from last "))
+            my_list.delete_n_from_last(n)
             my_list.display()
-
+        elif n == 9:
+            n = int(input("Enter the position to be deleted.... "))
+            my_list.delete_nth_node(n)
+            my_list.display()
         elif n == 0:
             break
 
