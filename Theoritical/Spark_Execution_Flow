@@ -1,0 +1,32 @@
+We will discuss about Apache Spark - Directed Acyclic Graph.
+#DAG-> Directed Acyclic Graph
+#Graph Theory -DAG
+--> Graph is a collection of nodes connected by branches.
+-->A Directed Graph is a graph in which branches are directed from one node to other.
+-->A DAG is a directed graph in which there are no cycles or loops, i.e., if you start from a node along the directed branches, you would never visit the already visited node by any chance.
+
+#Apache Spark -DAG
+-->DAG or Directed Acyclic Graph is defined as a set of the Vertices and the edges where the vertices represent Resilient distributed systems(RDD), and edges represent the Operation which is to be applied on RDD.
+-->Spark Driver identifies the tasks implicitly that can be computed in parallel with partitioned data in the cluster.
+--> With these identified tasks, Spark Driver builds a logical flow of operations that can be represented in a graph which is directed and acyclic, also known as DAG (Directed Acyclic Graph).
+--> Apache Spark builds its own plan of executions implicitly from the spark application provided.
+
+#DAG -Execution Plan in Apache Spark
+-->Execution Plan tells how Spark executes a Spark Program or Application.
+--> Consider the following word count example, where we shall count the number of occurrences of unique words.
+--> Example
+counts = sc.textFile("/path/to/input/")
+      .flatMap(lambda line: line.split(" "))
+      .map(lambda word: (word, 1))
+      .reduceByKey(lambda a, b: a + b)
+counts.saveAsTextFile("/path/to/output/")
+#Following are the operations that we are doing in the above program
+> Task 1 : Load input to an RDD
+> Task 2 : Preprocess
+>Task 3 : Map
+> Task 4 : Reduce
+>Task 5 : Save
+-->To achieve better performance, we have to keep the data in a pipeline and reduce the number of shuffles (between nodes).
+--> The data can be in a pipeline and not shuffled until an element in RDD is independent of other elements.
+--> In our word count example, an element is a word. And from the tasks we listed above, until Task 3, i.e., Map, each word does not have any dependency on the other words. But in Task 4, Reduce, where all the words have to be reduced based on a function (aggregating word occurrences for unique words), shuffling of data is required between the nodes. When there is a need for shuffling, Spark sets that as a boundary between stages.
+--> In the above example, stage boundary is set between Task 3 and Task 4.
