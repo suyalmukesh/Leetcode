@@ -1,0 +1,51 @@
+Sort merge bucketing join in Pyspark
+
+Sort merge bucketing join is a join algorithm that works by first bucketing the two datasets on the join key.
+
+The buckets are then sorted and merged together, one bucket at a time. The merge operation works by comparing the keys of the two buckets and then combining the rows with the same key.
+
+Sort merge bucketing join is a very efficient join algorithm for large datasets.
+
+It is typically faster than other join algorithms, such as hash join, for datasets that are larger than the available memory.
+
+However, sort merge bucketing join can be slower than hash join for smaller datasets. This is because sort merge bucketing join requires two passes over the data, while hash join only requires one pass.
+
+What is meant by Passes ?
+
+In the context of data processing, passes over data are often used to measure the performance of an algorithm or a program. The number of passes over the data can be used to estimate the amount of time and resources that will be required to process the data.
+
+The two passes in sort merge join are:
+
+The first pass sorts the two datasets on the join key.
+
+The second pass merges the sorted datasets together, one partition at a time.
+
+The first pass is necessary to ensure that the two datasets are sorted on the join key. This is because the merge operation can only combine rows that have the same key.
+
+The second pass merges the sorted datasets together, one partition at a time.
+
+The merge operation works by comparing the keys of the two partitions and then combining the rows with the same key.
+
+In general, sort merge bucketing join is a good choice for join algorithms when the datasets are large and the join keys are sortable.
+
+Here is an example of a sort merge bucketing join in PySpark:
+
+from pyspark.sql.functions import col, sort, merge, bucketBy
+
+# Load the data
+df1 = spark.read.csv("data1.csv")
+df2 = spark.read.csv("data2.csv")
+
+# Bucket the data
+df1 = df1.bucketBy(4, col("key"))
+df2 = df2.bucketBy(4, col("key"))
+
+# Perform the join
+joined_df = df1.join(df2, on="key", how="inner")
+
+# Print the results
+joined_df.show()
+
+The main difference between sort merge shuffle join and sort merge bucketing join is that sort merge bucketing join does not require the data to be sorted before the join.
+
+This can save time and resources, especially for large datasets.
