@@ -1,0 +1,38 @@
+What is the need to change the number of partition in Apache spark.
+How to control data distribution and performance on cluster using repartition() and coalesce?
+
+case 1:
+Suppose we have 100 cluster node environment and we are processing 4 gb file. By default there will be 32 partitions. These 32 partitions data will be processed on 32 nodes in parallel. 68 node will be sitting ideal doing nothing.
+In this case we can increase the number of partitions to support the more parallelism.
+
+rdd.repartition(100)
+
+Now 100 partition will run parallel on 100 nodes.
+
+Case 2: Suppose we have 50 cluster node environment.
+We are processing 400gb file then by default 3200 partitions will be created.
+
+Each node will process 64 partitions of size 128mb in parallel.
+Now if we apply filter transformation.
+rdd.filter()
+
+Let's assume size of each partition become 1mb.
+
+It will cause overhead to the system to have and manage such small size of 3200 partitions.
+
+3200 partitions of 1mb data= 50 partitions of 64 mb data.
+
+Since we have 50 node cluster so better to repartition it to 50.
+both
+So decrease the no of partition.
+two ways
+rdd.repartition(50)
+rdd.coalesce(50)
+
+both functions are decreasing partition.
+what is the difference? which one to use?
+
+So reparation does reshuffling and create even size partitions . Reparation can increase or decrease the no of partition both but coalesce doesn't do reshuffling. It merge the partition available locally on cluster node. Coalesce doesn't create even size partitions after resizing.
+
+Hence it is always recommended to use coalesce for better performance.
+
