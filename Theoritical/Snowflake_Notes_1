@@ -1,0 +1,91 @@
+1. Which of these SQL functions helps extract the path of a staged file relative to its location in the stage using the stage name and   absolute file path in cloud storage as inputs?
+
+GET_RELATIVE_PATH 
+
+2. Which of these functions helps generate the FILE URL to access the unstructured data file?
+BUILD_STAGE_FILE_URL
+
+3. Which of these SQL functions helps retrieve the URL for an external or internal named stage using the stage name as the input?
+GET_STAGE_LOCATION 
+
+
+4. Which of these functions helps generate the Pre-signed URL to access the unstructured data file?
+
+GET_PRESIGNED_URL
+
+5. What size of the virtual warehouse needs to be created by the sysadmin while loading using Snowpipe? (Select the best answer)
+Snowpipe uses compute resources provided by Snowflake (i.e. a serverless compute model). These Snowflake-provided resources are automatically resized and scaled up or down as required, and are charged and itemized using per-second billing. Data ingestion is charged based upon the actual workloads. User doesn't need to create any warehouse as it is taken care by Snowflake.
+
+
+6. While transforming Semi-structure data, If you want expansion for all the sub-elements recursively using FLATTEN function, what argument would you need to set with FLATTEN function?
+RECURSIVE=>TRUE
+
+7. Which of these SQL functions helps returns the absolute path of a staged file using the stage name and path of the file relative to its location in the stage as inputs.?
+GET_ABSOULTE_PATH
+
+
+8. What is the preferred way to distinguish empty strings from NULLs while unloading in CSV files?
+Enclose strings in Quotes by setting the field FIELD_OPTIONALLY_ENCLOSED_BY option
+
+9. Snowflake supports the secured access of unstructured data files in cloud storage. What types of URLs are available to access files in cloud storage? (Select 3)
+
+Pre-signed URL -> Simple HTTPS URL used to access a file via a web browser. A file is temporarily accessible to users
+                  via this URL using a pre-signed access token. The expiration time for the access token is configurable.
+                  Ideal for business intelligence applications or reporting tools that need to display the unstructured file contents.
+
+File URL ->  URL that identifies the database, schema, stage, and file path to a set of files. A role that has sufficient privileges on the stage can access the files. Ideal for custom applications that require access to unstructured data files.
+
+Scoped URL -> Ideal for use in custom applications,providing unstrutured data to other accounts via share 
+              It is an Encoded URL that permits temporary access to a staged file without granting privileges to the stage. The URL expires when the persisted query result period ends (i.e., the results cache expires), which is currently 24 hours. Ideal for use in custom applications, providing unstructured data to other accounts via a share, or for downloading and ad hoc analysis of unstructured data via Snowsight. 
+
+ 
+10. The Snowflake Information Schema includes table functions you can query to retrieve information about your directory tables. Which table function can be used to query the history of data files registered in the metadata of specified objects and the credits billed for these operations?
+AUTO_REFRESH_REGISTRATION_HISTORY 
+
+
+EXPERIMENT WITH TABLE FUNCTION 
+
+
+11. Which of these compression methods are supported by Snowflake? 
+    GZIP 
+    deflate
+    bzip2
+    raw_deflate
+    Zstandard
+    Brotli 
+    All of these are supported by Snowflake. Snowflake can automatically detect any of these compression methods except Brotli and Zstandard
+
+
+
+
+12. How can we add a Directory table explicitly to a stage to store a catalog of staged files?
+
+Using CREATE STAGE command 
+
+13. While transforming Semi-structure data, what argument would you need to set with FLATTEN function to omit the output of the input rows that cannot be expanded, either because they cannot be accessed in the path or because they have zero fields or entries?
+OUTER=>FALSE
+
+
+14. The status of COPY INTO command can be checked from the Resource Monitors tab in the Snowflake user interface, as well as querying the INFORMATION_SCHEMA.LOAD_HISTORY and ACCOUNT_USAGE.LOAD_HISTORY view.
+
+
+15. Staged files can be deleted from a Snowflake stage (user stage, table stage, or named stage) using the following methods: 
+     1- Files that were loaded successfully can be deleted from the stage during a load by specifying the PURGE copy option in the 
+        COPY INTO <table> command.
+     2- After the load completes, use the REMOVE command to remove the files in the stage. 
+        Please note, DELETE or REMOVE are not COPY command options. 
+        REMOVE is a different DML command which is used to remove files in the stage.
+
+16. What are the possible values for the VALIDATION_MODE option in the COPY INTO <table> statement?
+    RETURN_ERRORS : Returns all errors across all specified files, including parsing and conversion errors.
+
+    RETURN_<n>_ROWS : (e.g. RETURN_10_ROWS): Validates the specified number of rows and fails at the first error encountered if any, otherwise the validation continues without error.
+
+    RETURN_ALL_ERRORS : Returns all errors across all specified files, including errors that were partially loaded during a previous load with the ON_ERROR option set to CONTINUE.
+
+It is important to note that the option RETURN_ROWS can only be used with the COPY INTO <location> command and not with COPY INTO <table>. This option is the only one available for the VALIDATION_MODE in COPY INTO <location>.
+
+
+
+
+

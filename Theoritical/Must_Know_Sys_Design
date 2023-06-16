@@ -1,0 +1,51 @@
+25 must-know concepts before your next system design interview:
+
+1. Scalability - How will your system handle growth? Vertical or Horizontal scaling?
+
+2. Latency and Throughput - Essential performance measures.
+
+3. Database design - SQL or NoSQL? Understand their strengths and weaknesses.
+
+4. Indexing - Understand database indexes and their performance implications.
+
+5. Load Balancing - Understand different algorithms and their use cases.
+
+6. Caching - Caching can dramatically increase the speed of data retrieval. Know different strategies, benefits and trade-offs.
+
+7. Networking Basics - TCP/IP, HTTP vs HTTPS, UDP, DNS lookups.
+
+8. Microservices Architecture - Learn how to decompose a large system into manageable parts.
+
+9. Data Sharding - As your data grows, how will you distribute it?Understand different sharding techniques and their trade-offs.
+
+10. CAP Theorem - Consistency, Availability, and Partition Tolerance - you can only pick two.
+
+11. System Interfaces - API design and best practices.
+
+12. Redundancy and Failover - Learn how to design a highly available system.
+
+13. Message Queues - Asynchronous communication, ensuring reliable data transfer.
+
+14. Data Replication - Storing duplicate data across multiple machines to increase reliability and availability.
+
+15. Concurrency - Handling multiple requests simultaneously.
+
+16. Multithreading - The art of handling multiple threads and synchronization.
+
+17. Rate Limiting - Controlling request rates, why, and how.
+
+18. Consensus Algorithms - Get familiar with Raft, Paxos, and more.
+
+19. Idempotency - Repeated requests should yield the same result.
+
+20. REST vs RPC - When and why to use them.
+
+21. Polling vs Push mechanism - Differences and their appropriate usage.
+
+22. Heartbeats - Regular signals sent between machines to indicate network connectivity and system health.
+
+23. Eventual vs Strong Consistency - Trade-offs and use cases.
+
+24. Logging and Monitoring - Their significance in maintaining a healthy system.
+
+25. Circuit Breakers - Learn how they can prevent system failures.

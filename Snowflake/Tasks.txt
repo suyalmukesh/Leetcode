@@ -38,3 +38,8 @@ AS
     
 
 
+A task can execute any one of the following types of SQL code: 
+Single SQL statement
+Call to a stored procedure
+Procedural logic using Snowflake Scripting.
+
