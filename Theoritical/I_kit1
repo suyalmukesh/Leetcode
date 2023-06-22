@@ -1,0 +1,35 @@
+Snowflake Question
+
+1. Where are you using snowflakes? Are you transforming your data on Snowflake or you are using some AWS Services before injecting it into the Snowflake DWH?
+2. Why do you think of choosing Snowflake other than Redshift which is native to AWS?
+3. In Snowflake what do you think clustering by the closed group does?
+4. Are you using snow pipe or a copy into a statement by loading the data from S3 to your Snowflake Warehouse?
+5. For the copy commands are you running inside Snowflake or running inside airflow DAG?
+6. What are the WH in Snowflake?
+7. What are the different tables in Snowflake?
+8. Currently which tables you have used in your DWH?
+9. Are you also implementing the data models inside Snowflake? 
+10. Are you implementing the star schema, snowflake schema or denormalized schema?
+11. What do you think is the advantage of the snowflake schema over the star schema?
+12. Have you also implemented SCDs in your DWH? If yes, then what are the different types of SCD?
+
+-----------------
+SQL Question
+
+13. Given a weather table, write a SQL Query to find all date ids with higher temperatures compared to their previous (yesterday's) dates.
+
++----+------------+-------------+
+| id. | recordDate | temperature |
++----+------------+-------------+
+Check the Video for full SQL questions. Due to word limit, I am only giving a gist of SQL question that was asked
+
+-----------------
+Apache Spark Questions
+
+14. What do you mean by client mode & cluster mode deployment? In production which mode should we use?
+15. Difference between repartition & coalesce in spark
+16. Have you used broadcast join in spark & when to apply broadcast join?
+17. How to set a particular size of the broadcasting in Spark?
+18. Suppose you have 2 df and one is hinting to df1.join and the other dataframe we are broadcasting it. And the second of having a 20 MB file and you have set the auto-config at 10 MB. So Will that lead to Broadcast joining or other joining?
+19. According to your configuration will it be the one which will be preferred here instead of the Broadcasting?
+20. Nisha shares 2 functions and Priya needs to identify which one is Action and which one is transformation. Identify Action and transformation from the spark code i.e. df.groupBy(“id”).count().count()

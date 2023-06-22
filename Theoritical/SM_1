@@ -1,0 +1,46 @@
+Internals of Apache Spark - New Article
+
+how spark decides the initial number of partitions in a dataframe.
+here is the thought process spark has..
+
+128 mb partition size is a good size,
+let's not go beyond that,
+but we can go below that with an intent to use all our resources.
+
+100 dataframe partitions when holding 200 cpu cores is not okay, as you end up wasting 100 cpu cores which you could have used.
+
+but having 100 dataframe partitions when holding 50 cpu cores in fine. here we are not wasting anything.
+
+which one is better (consider 100 GB file)
+100 partitions , 100 cores
+200 partitions , 100 cores
+300 partitions, 100 cores
+??
+
+in all the above scenarios all our resources will be used, only thing is that
+when processing 100 partitions with 100 cores you are processing a larger size partition (1 GB partition size).
+so each core has to process 1 GB data.
+that means it requires 1 GB of execution memory (assuming execution memory is just 25% of total memory allotted to the executor) we will require 4 GB per core, if this is lesser we will run into memory crunch and task might fail with out of memory error.
+
+200 partitions means each partition is of size 500 mb
+
+300 partitions means each partitions is of size 350 mb approx
+
+spark thinks that it works best when the partitions size is 128 mb, so ideally 800 partitions each with size 128 mb would work the best as per spark.
+
+800 partitions, 100 cores in this scenario
+
+are we wasting any resources, no we are not... it just that we are running more number of smaller size tasks.
+
+I just tried building that thought process...
+
+I will end this post by saying..
+
+100 dataframe partitions when holding 200 cpu cores is not okay
+but 600 dataframe partitions when holding 200 cpu cores is fine.
+
+Not sure if I conveyed the thought process, I tried my best anyways.
+
+Ask me anything related to this in comments and I will answer.
+
+if you want to experience a learning like never before & want to make a career in big data then visit my website https://lnkd.in/gt_jpCyE to know more about the program.

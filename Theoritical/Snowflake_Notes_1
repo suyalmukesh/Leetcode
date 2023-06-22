@@ -87,5 +87,26 @@ It is important to note that the option RETURN_ROWS can only be used with the CO
 
 
 
+Currently, only JSON and Parquet file formats are supported for data unloading. Other formats are not supported at this time. However, all of these file formats are supported for data loading.
+
+
+
+Suppose you have an auto-scaling mode setup with an Economy policy. In what situation does Snowflake spin up an additional cluster?
+In the Economy Scaling policy, Snowflake spins up an additional cluster only if the system estimates there’s enough query load to keep the cluster busy for a least 6 minutes.
+
+This REPLICATION_USAGE_HISTORY view in the Account Usage Schema can be used to query the replication history for a specified database. The returned results include the database name, credits consumed, and bytes transferred for replication. Usage data is retained for 365 days (1 year).
+
+
+
+Snowflake supports three types of views.
+
+Standard View, Secure View, and Materialized View.   
+
+Standard View: It is a default view type. Its underlying DDL is available to any role with access to the view. When you create a standard view, Snowflake saves a definition of the view. Snowflake does not run the query. When someone accesses the view, that is when the query is run. The standard view will always execute as the owning role.
+
+Secure View: The secure view is exactly like a standard view, except users cannot see how that view was defined. Sometimes a secure view will run a little slower than a standard view to protect the information in a secure view. Snowflake may bypass some of the optimizations.
+
+Materialized View: A materialized view is more like a table. Unlike a standard or secure view, Snowflake runs the query right away when you create a materialized view. It takes the results set and stores that result set as a table in Snowflake. Because Snowflake is storing that materialized view as a table, creating micro partitions. Snowflake is creating metadata about those micro partitions. So when you query a materialized view, if you put a filter on the view, you get the same benefit of micro partition pruning that you would get from a table. With Snowflake, the materialized view is automatically refreshed every time there is a transaction against the base table. So it is always going to be in sync. If you want, you can also create a secure materialized view, which again will hide the logic from the user. A note about materialized views, because Snowflake is auto-refreshing them in the background, they use some credits, so there is a little bit of a cost there. Moreover, there is some storage, and Snowflake stores the result set as a table in Snowflake. So materialized views use more storage and compute than standard or secure views.
+
 
 

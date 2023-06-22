@@ -2,20 +2,19 @@ SNOWFLAKE NOTES :
 
 1. 
 
-Shares are named Snowflake objects that encapsulate all of the information required to share a database. Each share consists of:
+Shares are named Snowflake objects that encapsulate all of the information required to share a database. 
 
-The privileges that grant access to the database(s) and the schema containing the objects to share.
-
-The privileges that grant access to the specific objects in the database.
-
-The consumer accounts with which the database and its objects are shared. 
-
+Each share consists of:
+        The privileges that grant access to the database(s) and the schema containing the objects to share.
+        The privileges that grant access to the specific objects in the database.
+        The consumer accounts with which the database and its objects are shared. 
 
 Example: 
 
-CREATE SHARE "SHARED_DATA" COMMENT=''; GRANT USAGE ON DATABASE "DEMO_DB" TO SHARE "SHARED_DATA"; 
-GRANT USAGE ON SCHEMA "DEMO_DB"."TWITTER_DATA" TO SHARE "SHARED_DATA"; 
-GRANT SELECT ON VIEW "DEMO_DB"."TWITTER_DATA"."FOLLOWERS" TO SHARE "SHARED_DATA";
+        CREATE SHARE "SHARED_DATA" COMMENT=''; 
+        GRANT USAGE ON DATABASE "DEMO_DB" TO SHARE "SHARED_DATA"; 
+        GRANT USAGE ON SCHEMA "DEMO_DB"."TWITTER_DATA" TO SHARE "SHARED_DATA"; 
+        GRANT SELECT ON VIEW "DEMO_DB"."TWITTER_DATA"."FOLLOWERS" TO SHARE "SHARED_DATA";
 
 
 -------------------------------------------------------------------------------------------------------------
@@ -34,31 +33,45 @@ SYSTEM | WINDOW | TABLE | AGGREGATE | USER-DEFINED | SCALAR
 -------------------------------------------------------------------------------------------------------------
 4. 
 
-Snowflake Query history page allows you to view the details of all the queries executed in the last 14 days. You can query the Query_History view in Snowflake's Account Usage schema for older queries.
+Snowflake Query history page allows you to view the details of all the queries executed in the last 14 days.
+You can query the QUERY_HISTORY view in Snowflake's ACCOUNT USAGE schema for older queries.
 
 -------------------------------------------------------------------------------------------------------------
 
 5. 
-Snowgrid's capabilities
+SNOWGRID's capabilities
+What is SNOWGRID ?
+Snowgrid is a platform where you can share and collaborate easily without ETL, and all with a single copy of your data! Break down data silos to instantly access data. Discover and share governed data between teams, business units, partners, customers, and more.
+It comes with sophisticated cross-cloud governance controls and flexible policies to ensure Snowflake’s modern data sharing and collaboration is secure. Policies follow the data to simplify governance at scale, while unlocking more value from even sensitive and regulated data.
+Maintain new levels of business continuity with cross-cloud and cross-region connectivity, so you can operate without disruption and deliver better customer experiences. Comply with regional and industry data regulations so you can operate locally and globally to grow and serve your business.
+Discover and access the most relevant data at your fingertips with Snowflake Data Marketplace. Enrich your insights with third-party data, connect with thousands of Snowflake customers, and extend your workflows with data services and third-party functions.
+
+
 Snowgrid allows you to use Secure Data Sharing features to provide access to live data, without any ETL or movement of files across environments.
 
             1.  SECURE , GOVERENED DATA SHARING 
             2.  SHARE internally with private data exchange or externally with public data exchange 
             3.  Live , ready to query data 
 
-
 -------------------------------------------------------------------------------------------------------------
 6. 
-
-Time Travel cannot be disabled for an account. A user with the ACCOUNTADMIN role can set DATA_RETENTION_TIME_IN_DAYS to 0 at the account level, which means that all databases (and subsequently all schemas and tables) created in the account have no retention period by default; however, this default can be overridden at any time for any database, schema, or table.
+TIME TRAVEL : 
+Time Travel cannot be disabled for an account. 
+A user with the ACCOUNTADMIN role can set DATA_RETENTION_TIME_IN_DAYS to 0 at the account level, which means that all databases (and subsequently all schemas and tables) created in the account have no retention period by default; however, this default can be overridden at any time for any database, schema, or table.
 
 -------------------------------------------------------------------------------------------------------------
 7. 
+DIRECTORY TABLE :
 
 A Directory table is not a separate database object; 
-it stores a catalog of staged files in cloud storage. Roles with sufficient privileges can query a directory table to retrieve file URLs to access the staged files and other metadata. A directory table can be added explicitly to a stage when the stage is created (using CREATE STAGE) or later (using ALTER STAGE) with supplying directoryTableParams. 
+  It stores a catalog of staged files in cloud storage. 
+  Roles with sufficient privileges can query a directory table to retrieve file URLs to access the staged files and other metadata. 
+  A directory table can be added explicitly to a stage when the stage is created (using CREATE STAGE) or later (using ALTER STAGE) with supplying directoryTableParams. 
 
  directoryTableParams (for internal stages) ::= [ DIRECTORY = ( ENABLE = { TRUE | FALSE } [ REFRESH_ON_CREATE = { TRUE | FALSE } ] ) ] ENABLE = TRUE | FALSE Specifies whether to add a directory table to the stage. When the value is TRUE, a directory table is created with the stage.
+
+DEMO : Create Directory table and other operations 
+
 
 -------------------------------------------------------------------------------------------------------------
 8. 
@@ -66,21 +79,17 @@ it stores a catalog of staged files in cloud storage. Roles with sufficient priv
 Secure Data Sharing enables sharing selected objects in a database in your account with other Snowflake accounts. The following Snowflake database objects can be shared: 
 
 Tables 
-
 External tables 
-
 Secure views 
-
 Secure materialized views 
-
 Secure UDFs 
-
 Snowflake enables the sharing of databases through shares created by data providers and “imported” by data consumers.
 
 
 -------------------------------------------------------------------------------------------------------------
 9. 
-Database and share replication are available in all editions, including the Standard edition. Replication of all other objects is only available for Business Critical Edition (or higher).
+DATABASE and SHARE replication are available in all editions, including the Standard edition. 
+Replication of all other objects is only available for Business Critical Edition (or higher).
 
 -------------------------------------------------------------------------------------------------------------
 10. 
@@ -95,10 +104,12 @@ Dynamic Data Masking is supported by
 Business Critical | VPS | Enterprise Edition 
 Dynamic Data Masking features require Enterprise Edition (or higher)
 
+READ and DEMO  : What is Dynamic Data Masking 
 -------------------------------------------------------------------------------------------------------------
 
 12. 
-Materialized View: A materialized view is more like a table. Unlike a standard or secure view, Snowflake runs the query right away when you create a materialized view. It takes the results set and stores that result set as a table in Snowflake. Because Snowflake is storing that materialized view as a table, creating micro partitions. Snowflake is creating metadata about those micro partitions. So when you query a materialized view, if you put a filter on the view, you get the same benefit of micro partition pruning that you would get from a table. With Snowflake, the materialized view is automatically refreshed every time there is a transaction against the base table. So it is always going to be in sync. If you want, you can also create a secure materialized view, which again will hide the logic from the user. A note about materialized views, because Snowflake is auto-refreshing them in the background, they use some credits, so there is a little bit of a cost there. Moreover, there is some storage, and Snowflake stores the result set as a table in Snowflake. So materialized views use more storage and compute than standard or secure views.
+Materialized View: A materialized view is more like a table. Unlike a standard or secure view, Snowflake runs the query right away when you create a materialized view. It takes the results set and stores that result set as a TABLE in Snowflake. 
+Because Snowflake is storing that materialized view as a table, creating micro partitions. Snowflake is creating metadata about those micro partitions. So when you query a materialized view, if you put a filter on the view, you get the same benefit of micro partition pruning that you would get from a table. With Snowflake, the materialized view is automatically refreshed every time there is a transaction against the base table. So it is always going to be in sync. If you want, you can also create a secure materialized view, which again will hide the logic from the user. A note about materialized views, because Snowflake is auto-refreshing them in the background, they use some credits, so there is a little bit of a cost there. Moreover, there is some storage, and Snowflake stores the result set as a table in Snowflake. So materialized views use more storage and compute than standard or secure views.
 
 -------------------------------------------------------------------------------------------------------------
 
@@ -127,7 +138,14 @@ Snowflake uses HyperLogLog to estimate the approximate number of distinct values
 
 16. 
 
-Snowflake is available in four editions: Standard, Enterprise, Business Critical, and Virtual Private Snowflake (VPS). Standard comes with most of the available features. Enterprise adds on to Standard with things like: extra days of time travel, materialized view support, and data masking. Business Critical brings to the table: HIPAA support, Tri-secret Secure, and more. And Virtual Private Snowflake is everything that Business Critical has, but with the ability to have customer-dedicated metadata stores and customer-dedicated virtual service.
+Snowflake is available in four editions: 
+
+Standard | Enterprise |  Business Critical | Virtual Private Snowflake (VPS) 
+
+Standard comes with most of the available features. 
+Enterprise adds on to Standard with things like: extra days of time travel, materialized view support, and data masking. 
+Business Critical brings to the table: HIPAA support, Tri-secret Secure, and more. 
+And Virtual Private Snowflake is everything that Business Critical has, but with the ability to have customer-dedicated metadata stores and customer-dedicated virtual service.
 
 -------------------------------------------------------------------------------------------------------------
 17. 
@@ -155,6 +173,8 @@ Defining clustering keys for very large tables (in the multi-terabyte range) hel
 20. 
 Snowflake has three types of cache.
 
+METADATA CACHE  |   DATA CACHE or LOCAL DISK CACHE   |   QUERY RESULT CACHE 
+
 The metadata cache that lives in the cloud services layer.
 
 The data cache/local disk cache that lives on the SSD drives in the virtual warehouses, and
@@ -164,7 +184,8 @@ The query result cache. If a result is small, it will be stored in the cloud ser
 -------------------------------------------------------------------------------------------------------------
 21. 
 
-User-managed Tasks is recommended when you can fully utilize a single warehouse by scheduling multiple concurrent tasks to take advantage of available compute resources. Also, recommended when adherence to the schedule interval is less critical. Serverless Tasks is recommended when you cannot fully utilize a warehouse because too few tasks run concurrently or they run to completion quickly (in less than 1 minute). Also, recommended when adherence to the schedule interval is critical.
+User-managed Tasks is recommended when you can fully utilize a single warehouse by scheduling multiple concurrent tasks to take advantage of available compute resources. Also, recommended when adherence to the schedule interval is less critical. 
+Serverless Tasks is recommended when you cannot fully utilize a warehouse because too few tasks run concurrently or they run to completion quickly (in less than 1 minute). Also, recommended when adherence to the schedule interval is critical.
 
 -------------------------------------------------------------------------------------------------------------
 22. 
