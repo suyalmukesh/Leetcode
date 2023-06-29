@@ -1,4 +1,4 @@
-1. Which of these SQL functions helps extract the path of a staged file relative to its location in the stage using the stage name and   absolute file path in cloud storage as inputs?
+1. Which of these SQL functions helps extract the path of a staged file relative to its location in the stage using the stage name and absolute file path in cloud storage as inputs?
 
 GET_RELATIVE_PATH 
 
@@ -13,12 +13,17 @@ GET_STAGE_LOCATION
 
 GET_PRESIGNED_URL
 
+
 5. What size of the virtual warehouse needs to be created by the sysadmin while loading using Snowpipe? (Select the best answer)
-Snowpipe uses compute resources provided by Snowflake (i.e. a serverless compute model). These Snowflake-provided resources are automatically resized and scaled up or down as required, and are charged and itemized using per-second billing. Data ingestion is charged based upon the actual workloads. User doesn't need to create any warehouse as it is taken care by Snowflake.
+Snowpipe uses compute resources provided by Snowflake (i.e. a serverless compute model). 
+These Snowflake-provided resources are automatically resized and scaled up or down as required, and are charged and itemized using per-second billing. 
+Data ingestion is charged based upon the actual workloads. 
+User doesn't need to create any warehouse as it is taken care by Snowflake.
 
 
 6. While transforming Semi-structure data, If you want expansion for all the sub-elements recursively using FLATTEN function, what argument would you need to set with FLATTEN function?
 RECURSIVE=>TRUE
+
 
 7. Which of these SQL functions helps returns the absolute path of a staged file using the stage name and path of the file relative to its location in the stage as inputs.?
 GET_ABSOULTE_PATH
@@ -27,7 +32,8 @@ GET_ABSOULTE_PATH
 8. What is the preferred way to distinguish empty strings from NULLs while unloading in CSV files?
 Enclose strings in Quotes by setting the field FIELD_OPTIONALLY_ENCLOSED_BY option
 
-9. Snowflake supports the secured access of unstructured data files in cloud storage. What types of URLs are available to access files in cloud storage? (Select 3)
+9. Snowflake supports the secured access of unstructured data files in cloud storage. 
+   What types of URLs are available to access files in cloud storage? (Select 3)
 
 Pre-signed URL -> Simple HTTPS URL used to access a file via a web browser. A file is temporarily accessible to users
                   via this URL using a pre-signed access token. The expiration time for the access token is configurable.
@@ -54,9 +60,6 @@ EXPERIMENT WITH TABLE FUNCTION
     Zstandard
     Brotli 
     All of these are supported by Snowflake. Snowflake can automatically detect any of these compression methods except Brotli and Zstandard
-
-
-
 
 12. How can we add a Directory table explicitly to a stage to store a catalog of staged files?
 
@@ -86,21 +89,26 @@ OUTER=>FALSE
 It is important to note that the option RETURN_ROWS can only be used with the COPY INTO <location> command and not with COPY INTO <table>. This option is the only one available for the VALIDATION_MODE in COPY INTO <location>.
 
 
+17. 
 
-Currently, only JSON and Parquet file formats are supported for data unloading. Other formats are not supported at this time. However, all of these file formats are supported for data loading.
+Currently, only JSON and Parquet file formats are supported for data unloading. 
+Other formats are not supported at this time. However, all of these file formats are supported for data loading.
 
-
+18. 
 
 Suppose you have an auto-scaling mode setup with an Economy policy. In what situation does Snowflake spin up an additional cluster?
 In the Economy Scaling policy, Snowflake spins up an additional cluster only if the system estimates there’s enough query load to keep the cluster busy for a least 6 minutes.
 
-This REPLICATION_USAGE_HISTORY view in the Account Usage Schema can be used to query the replication history for a specified database. The returned results include the database name, credits consumed, and bytes transferred for replication. Usage data is retained for 365 days (1 year).
+19. 
+The REPLICATION_USAGE_HISTORY view in the Account Usage Schema can be used to query the replication history for a specified database. 
+The returned results include the database name, credits consumed, and bytes transferred for replication. 
+Usage data is retained for 365 days (1 year).
 
-
+20. 
 
 Snowflake supports three types of views.
 
-Standard View, Secure View, and Materialized View.   
+Standard View  |  Secure View | Materialized View   
 
 Standard View: It is a default view type. Its underlying DDL is available to any role with access to the view. When you create a standard view, Snowflake saves a definition of the view. Snowflake does not run the query. When someone accesses the view, that is when the query is run. The standard view will always execute as the owning role.
 

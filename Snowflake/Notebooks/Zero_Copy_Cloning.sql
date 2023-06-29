@@ -1,19 +1,22 @@
-ZERO-COPY CLONING 
+--  ZERO-COPY CLONING 
 
--- VERY SIMPLE SYNTAX 
+--  VERY SIMPLE SYNTAX 
 
-CREATE TABLE NEW_TABLE CLONE TABLE_SOURCE 
+CREATE TABLE NEW_TABLE CLONE TABLE_SOURCE; 
 
-CLONING CAN ALSO BE DONE FOR => DATABASE | SCHEMA | TABLE | STREAM | FILE FORMAT | SEQUENCE | STAGE | TASK | PIPE 
+-- CLONING CAN ALSO BE DONE FOR => DATABASE | SCHEMA | TABLE | STREAM | FILE FORMAT | SEQUENCE | STAGE | TASK | PIPE 
 
-PIPE CAN ONLY BE CLONED IF IT REFERENCES EXTERNAL STAGES 
-STAGES - NAMED INTERNAL STAGES CAN NOT BE CLONED 
+-- PIPE CAN ONLY BE CLONED IF IT REFERENCES EXTERNAL STAGES 
 
-Cloning a database or schema will clone all contained objects 
+-- STAGES - NAMED INTERNAL STAGES CAN NOT BE CLONED 
 
-NOTES : 
+-- Cloning a database or schema will clone all contained objects 
 
-1. Creates copies of a database , a schema or a table ( Basically a metadata operation ). 
+--  NOTES : 
+
+/*
+
+1. Creates copies of a DATABASE , a SCHEMA or a TABLE ( Basically a metadata operation ). 
    Both the original & cloned table will reference the same micro-partitions. 
    Both the tables are independent from each other . 
    Question : If the tables referencing the same micro-partitions then how the updated/inserts are independent ? 
@@ -27,6 +30,7 @@ NOTES :
 
 5. Typically combined with Time Travel 
 
+*/
 
 How about privileges ? 
 

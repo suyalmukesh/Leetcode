@@ -34,7 +34,7 @@ Supports most standard SQL functions defined in SQL:1999 and parts of SQL:2003 e
     -- 3 FRI
 
 
-2.  Aggregate functions - Mathematical calculations such as max and min across rows
+2.  Aggregate functions - Mathematical calculations such as MAX and MIN across rows
 
 
 3.  Window functions - Aggregate functions that operate on a subset of rows 
@@ -83,7 +83,7 @@ Mathematical algorithms can approximate the exact number , they might be good en
        APPROX_TOP_K (COLUMN, <K>, <counters>)  -- counters = Max num of distinct values that can be tracked      count >> k   large count means more accurate
 
 
-       example : a large table 28.8B rows 
+       Example : a large table 28.8B rows 
 
        SELECT SS_CUSTOMER_SK , COUNT(SS_CUSTOMER_SK)
        FROM STORE_SALES 

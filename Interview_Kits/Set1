@@ -1,0 +1,16 @@
+Data Engineer Interview Questions:
+============================================================================================================================
+1.  what are the Optimisation technique while reading and writing data using jdbc connection from and to database in Spark?
+2.  Difference between running pyspark code and python code in spark framework? which will be faster and why?
+3.  How to implement SCD Type -2 without using Merge statement.
+4.  What is thread dump
+5.  What is Adaptive Query Execution in Spark 3 and what are the advantages.
+6.  What is checkpointing in spark streaming and how it is useful.
+
+7.  In which scenario, does Spark go for 2nd attempt on failure & re- try the entire application?
+    Ideally, if there is any Task failure, it does restart the task.
+    We can handle it using spark.yarn.maxAppAttempts, but I can't use it for some other reason.
+    Willing to control it through code itself.
+
+
+

@@ -1,4 +1,4 @@
-DATABASE REPLICATION ( Snlowflake Standard feature)
+DATABASE REPLICATION ( Snowflake Standard feature)
 Replicates a database between accounts within the same organization 
 
 SHARING DATA ACROSS REGIONS AND DIFFERENT CLOUD PROVIDERS ( Cross region Sharing )

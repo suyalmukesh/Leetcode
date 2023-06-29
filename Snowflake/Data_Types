@@ -17,7 +17,7 @@ ARRAY -  Consists of 0 or more pieces of data
 VARIANT -  Can store values of any other data type including ARRAY and OBJECT 
            Suitable to store and query semi-structured data .
 
-           SQL nulls are ust stored as "null" strings . They are called JSON null (or "VARIANT null") 
+           SQL nulls are just stored as "null" strings . They are called JSON null (or "VARIANT null") 
 
            Non-native strings (e.g. dates ) are stored in strings 
 

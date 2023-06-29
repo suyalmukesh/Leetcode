@@ -1,0 +1,26 @@
+Do you know these 7 Interesting things in Apache Spark
+
+1. Serialization means keeping data in form of bytes,
+de-serialization means keeping data in object form.
+Data is kept on disk in serialized for,
+data is generally kept in memory in de-serialized form.
+Serialized form takes less space to store.
+
+2. you might have seen locality level in spark UI,
+"node local" means the data is fetched from hdfs or data resides in other executor within the same node
+"process local" means the data is read from the same executor
+
+3. when doing caching the only option you have for caching on disk is a serialized form.
+But, when caching in memory data can be kept in serialized or deserialized form, but deserialization is preferred for caching in memory.
+
+4. The default caching level when caching rdd's is memory only, but in case of spark sql and dataframes the default caching level is memory and disk.
+
+5. snappy is non splittable file when we use with csv, but if we use with parquet or other container based file format it is splittable. so always use snappy with a container based file format.
+
+6. Caching a rdd or dataframe is a lazy operation, but caching a spark table is an eager operation by default. however, we can make the spark table cached in a lazy way by using lazy keyword.
+
+7. when caching a dataframe, it does not mean that all the partitions would be cached. Spark will cache whatever is necessary. if you say cache on a dataframe and then show tail to see last 5 records lets say, then it will just cache the last partition.
+
+I hope you found this interesting & informative. These are important points to remember.
+
+Feel free to add more points in comments!

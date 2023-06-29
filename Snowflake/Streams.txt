@@ -1,20 +1,15 @@
 STREAMS 
 
-
 Record (DML - ) changes made to a table 
 
 DELETE | INSERT | UPDATE 
 
-
 CHANGE DATA CAPTURE 
 
-METADATA$ACTION 
-METADATA$UPDATE
-METADATA$ROW_ID
+METADATA$ACTION  |  METADATA$UPDATE |  METADATA$ROW_ID
 
 
-CREATE STREAM my_stream
-ON TABLE my_table 
+CREATE STREAM my_stream  ON TABLE my_table 
 
 
 We can Query from the stream 
@@ -22,7 +17,7 @@ We can Query from the stream
 SELECT * FROM my_stream 
 
 
-WE can also consume a stream and will Empties a steeam 
+WE can also consume a stream and will Empties a stream 
 
 Types of streams - 
 
@@ -30,8 +25,8 @@ STANDARD
 
    INSERT | UPADTE | DELETE 
     Supports : Tables 
-              Directory tables
-              Views 
+               Directory tables
+               Views 
 
 APPEND-ONLY 
 
@@ -63,7 +58,7 @@ Column indicating when the stream is predicted to become stale STALE_AFTER
 DESCRIBE STREAM or SHOW STREAM commmand 
 
 
-Stream extends retensiojn to 14 days (default)  - Regardless of snowflake edition 
+Stream extends retension to 14 days (default)  - Regardless of snowflake edition 
 
 MAX_DATA_EXTENSION_TIME_IN_DAYS 
 

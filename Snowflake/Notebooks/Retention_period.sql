@@ -1,6 +1,6 @@
 // Number of days for which the historical data is preserved and Time Travel can be applied 
 // DEFAULT = 1
-// Retension period of 0 "disables" time travel 
+// Retention period of 0 "disables" time travel 
 
 -- 1: Create table that overwrites default retention period 
 CREATE TABLE TABLE_NAME 
@@ -12,7 +12,7 @@ DATA_RETENTION_TIME_IN_DAYS = 0 ;
 
 
 -- 2: Alter table's retention period 
-ALTER TABLE TABLE_NAME (SET DATA_RETENTION_TIME_IN_DAYS = 0 )
+ALTER TABLE TABLE_NAME (SET DATA_RETENTION_TIME_IN_DAYS = 0 );
 
 
 -- 3: Alter account's default retention period 

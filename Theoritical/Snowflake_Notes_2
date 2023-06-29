@@ -287,11 +287,20 @@ GRANT ROLE DBA_ROLE TO JOHN ;
 USE ROLE DBA_ROLE;
 USE DATABASE Monica_db;
 Select * from t1;
+-------------------------------------------------------------------------------------------------------------
+32. 
+The views in the ACCOUNT_USAGE schema provide up to 365 days of history for various information. The history of queries from 7 months ago can only be retrieved using the QUERY_HISTORY view in the ACCOUNT_USAGE schema. The QUERY HISTORY table function in the INFORMATION schema can only provide seven days of history. The query history page can only show the history of executed queries within the last 14 days. https://docs.snowflake.com/en/sql-reference/account-usage#differences-between-account-usage-and-information-schema
 
+------------------------------------------------------------------------------------------------------------
 
+33. 
+As an administrator, you are required to find and list all tables with a size greater than 1 TB. 
+You must also include tables created and deleted in the last month. 
+Which one of the following options should you use?
+
+Query the views in the ACCOUNT_USAGE schema 
 
 -------------------------------------------------------------------------------------------------------------
-
 
 PRACTICLE : To do : 
 

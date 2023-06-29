@@ -67,12 +67,13 @@
 --  A share can be imported into one database.
 --  Note: Very important for the exam. You can expect 2-3 questions on what a consumer can or can not do with a share.
 
---  Direct data sharing can only be done with accounts in the same region 
---  and the same cloud provider. Suppose you want to share with someone outside of your region. 
+--  Direct data sharing can only be done with accounts in the same region and the same cloud provider. 
+--  Suppose you want to share with someone outside of your region. 
 --  In that case, you replicate that database into the region you want to share with and share from there.
 
 
--- Secure Data Sharing enables sharing selected objects in a database in your account with other Snowflake accounts. The following Snowflake database objects can be shared: 
+-- Secure Data Sharing enables sharing selected objects in a database in your account with other Snowflake accounts. 
+-- The following Snowflake database objects can be shared: 
 -- Tables 
 -- External tables 
 -- Secure views 
@@ -84,10 +85,11 @@
 --  Snowgrid allows you to use Secure Data Sharing features to provide access to live data, without any ETL or movement of files across environments.
 
 
--- Shares are named Snowflake objects that encapsulate all of the information required to share a database. Each share consists of:
--- The privileges that grant access to the database(s) and the schema containing the objects to share.
--- The privileges that grant access to the specific objects in the database.
--- The consumer accounts with which the database and its objects are shared. 
+-- Shares are named Snowflake objects that encapsulate all of the information required to share a database. 
+--Each share consists of:
+     -- The privileges that grant access to the database(s) and the schema containing the objects to share.
+     -- The privileges that grant access to the specific objects in the database.
+     -- The consumer accounts with which the database and its objects are shared. 
 
 -- Example:
 -- CREATE SHARE "SHARED_DATA" COMMENT='';
@@ -96,7 +98,7 @@
 -- GRANT SELECT ON VIEW "DEMO_DB"."TWITTER_DATA"."FOLLOWERS" TO SHARE "SHARED_DATA";
 
 
-////// PRACTICLES ////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////// PRACTICLES ////////////////////////////////////////////////////////////////
 
 
 -- PREPARATION 
@@ -145,14 +147,12 @@ CREATE OR REPLACE VIEW ORDERS_VIEW AS
 SELECT EMPNO,ENAME,JOB,MGR FROM ORDERS; 
 
 
+--  NOTE : IT is not possible (recommended ) to share the view to the user . 
+--  Because though we are sharing the limited data but still the 'text' column can reveal more data . 
+--  SHOW VIEWS LIKE '%ORDERS%' 
+--  The 'text' column will have the whole view defination 
 
-NOTE : IT is not possible (recommended ) to share the view to the user . Because though we are sharing the limited data but still the 'text' column can reveal more data . 
-SHOW VIEWS LIKE '%ORDERS%' 
-The 'text' column will have the whole view defination 
-
-
-
-So it is a best practice to share the data using the 'SECURE VIEWS' 
+--  So it is a best practice to share the data using the 'SECURE VIEWS' 
 
 CREATE OR REPLACE SECURE VIEW ORDERS_VIEW_SECURE AS 
 (SELECT EMPNO,ENAME,JOB,MGR FROM ORDERS); 
@@ -160,9 +160,7 @@ CREATE OR REPLACE SECURE VIEW ORDERS_VIEW_SECURE AS
 SHOW VIEWS LIKE '%ORDERS%' 
 
 
-
-
-/// CREATING SHARE //// 
+///////////////////////////////////// CREATING SHARE ////////////////////////////////////////////////////////////////////// 
 
 -- STEP 1 : CREATE A SHARE OBJECT 
 -- You need the ACCOUNTADMIN role 
@@ -184,7 +182,7 @@ GRANT SELECT ON VIEW ORDERS_VIEW_SECURE TO SHARE ORDERS_SHARE;
 SHOW GRANTS TO SHARE ORDERS_SHARE;
 
 
-
+////////////// CREATE READER ACCOUNT //////////////////////////////////////////////////////////////////////
 
 
 -- CREATE READER ACCOUNT FOR NON-SNOWFLAKE ACCOUNT 

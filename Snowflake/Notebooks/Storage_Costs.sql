@@ -3,14 +3,14 @@
 
 ----- TIME TRAVEL COST -----------
 
-// Storage usage on account level 
+--  Storage usage on account level 
 SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.STORAGE_USAGE ORDER BY USAGE_DATE DESC;
 
-// Storage usage on table level 
+--  Storage usage on table level 
 SELECT * FROM SNOWFLAKE.ACCOUNT_USAGE.TABLE_STORAGE_METRICS;
 
 
-// Storage usage on table level  - formatted 
+--  Storage usage on table level  - formatted 
 
 SELECT  ID, 
         TABLE_NAME,
@@ -24,15 +24,14 @@ FROM
 ORDER BY 
         STORAGE_USED_GB DESC , TIME_TRAVEL_STORAGE_USED_GB DESC; 
 
-
-// Storage usage on Account level formatted 
+-- Storage usage on Account level formatted 
 
 SELECT USAGE_DATE , 
        STORAGE_BYTES / (1024*1024*1024) AS STORAGE_GB , 
        STAGE_BYTES / (1024*1024*1024) AS STAGE_GB, 
        FAILSAFE_BYTES / (1024*1024*1024) AS FAILSAFE_GB 
 FROM 
-      SNOWFLAKE.ACCOUNT_USAGE.STORAGE_USAGE 
+       SNOWFLAKE.ACCOUNT_USAGE.STORAGE_USAGE 
 ORDER BY USAGE_DATE DESC;       
         
 
